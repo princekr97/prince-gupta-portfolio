@@ -40,14 +40,14 @@ export const About = () => {
                                         className={styles.statBox}
                                         whileHover={{ y: -5, scale: 1.05 }}
                                     >
-                                        <span className={styles.statNumber}>{data.stats.experience}+</span>
+                                        <span className={styles.statNumber}>{data.stats.experience}</span>
                                         <span className={styles.statLabel}>Years Exp</span>
                                     </motion.div>
                                     <motion.div
                                         className={styles.statBox}
                                         whileHover={{ y: -5, scale: 1.05 }}
                                     >
-                                        <span className={styles.statNumber}>{data.stats.projects}+</span>
+                                        <span className={styles.statNumber}>{data.stats.projects}</span>
                                         <span className={styles.statLabel}>Projects</span>
                                     </motion.div>
                                 </div>
@@ -67,7 +67,7 @@ export const About = () => {
                         <div className={styles.sectionSubtitle}>Developer</div>
 
                         <p className={styles.description}>
-                            <span className={styles.descriptionHighlight}>{data.stats.experience}+ years of experience</span> building scalable, high-performance web applications across
+                            <span className={styles.descriptionHighlight}>{data.stats.experience} years of experience</span> building scalable, high-performance web applications across
                             <span className={styles.descriptionHighlight}> frontend, backend, and databases</span>. I specialize in React, Angular, Node.js, and TypeScript,
                             delivering clean, maintainable, production-ready systems used at scale.
                         </p>
