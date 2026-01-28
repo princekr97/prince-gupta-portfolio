@@ -14,7 +14,7 @@ export const Logo: React.FC<LogoProps> = ({ className, onClick }) => {
                 <div className={styles.cursor}></div>
             </div>
             <div className={styles.name}>
-                prince<span className={styles.dot}>.</span>dev
+                PRINCE<span className={styles.dot}>.</span>DEV
             </div>
         </div>
     );
