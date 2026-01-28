@@ -29,16 +29,16 @@
     }
 
     .nameDisplay {
-        font-size: clamp(1.9125rem, 9.35vw, 2.7625rem);
-        letter-spacing: -1.5px;
-        line-height: 1.05;
-        margin-bottom: 1.25rem;
-        word-break: break-word;
+        font-size: clamp(1.6rem, 8vw, 2.4rem);
+        letter-spacing: -1px;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
     }
 
     .nameLine {
         display: block;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.15rem;
+        white-space: nowrap;
     }
 
     .nameWord {
