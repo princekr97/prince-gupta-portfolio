@@ -1,5 +1,5 @@
-import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { useIntersectionObserver } from '@hooks/useIntersectionObserver';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { useRef } from 'react';
 import styles from './ExperienceTimeline.module.css';
 import usePortfolioData from '../../../hooks/usePortfolioData';
 
@@ -7,27 +7,25 @@ export const ExperienceTimeline = () => {
     const data = usePortfolioData();
 
     return (
-        <section className={`${styles.timeline} section`} id="experience">
+        <section className={styles.timeline} id="experience">
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
-                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
                     className={styles.header}
                 >
-                    <motion.h2 className={styles.title}>
-                        Professional Journey
-                    </motion.h2>
-                    <motion.p className={styles.subtitle}>
-                        {data.personal.yearsOfExperience} years of building impactful solutions
-                    </motion.p>
+                    <h2 className={styles.title}>Professional Journey</h2>
+                    <p className={styles.subtitle}>
+                        {data.personal.yearsOfExperience} years of engineering excellence
+                    </p>
                 </motion.div>
 
                 <div className={styles.timelineContainer}>
                     {data.experience.map((exp, index) => (
                         <TimelineCard
-                            key={exp.id}
+                            key={exp.id || index}
                             experience={exp}
                             index={index}
                         />
@@ -45,164 +43,118 @@ const TimelineCard = ({
     experience: any;
     index: number;
 }) => {
-    const { ref, isIntersecting } = useIntersectionObserver({
-        threshold: 0.2,
-        freezeOnceVisible: false
-    });
+    const cardRef = useRef<HTMLDivElement>(null);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-    const rotateX = useTransform(y, [-100, 100], [5, -5]);
-    const rotateY = useTransform(x, [-100, 100], [-5, 5]);
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    // Smooth movement for 3D tilt
+    const rotateX = useSpring(useTransform(mouseY, [-250, 250], [7, -7]), { stiffness: 100, damping: 30 });
+    const rotateY = useSpring(useTransform(mouseX, [-200, 200], [-7, 7]), { stiffness: 100, damping: 30 });
 
     const isEven = index % 2 === 0;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!cardRef.current || isMobile) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        mouseX.set(x);
+        mouseY.set(y);
+
+        // Update CSS variables for glow effect
+        cardRef.current.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        cardRef.current.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    };
+
+    const handleMouseLeave = () => {
+        mouseX.set(0);
+        mouseY.set(0);
+    };
 
     return (
         <motion.div
-            ref={ref}
             className={`${styles.timelineItem} ${isEven ? styles.left : styles.right}`}
-            initial={{ opacity: 0, x: isEven ? -100 : 100, scale: 0.8 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: false, margin: "-50px" }}
+            initial={{ opacity: 0, x: isMobile ? 50 : (isEven ? -100 : 100) }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{
                 duration: 0.8,
-                delay: index * 0.2,
+                delay: index * 0.1,
                 type: "spring",
-                stiffness: 100
+                stiffness: 50
             }}
         >
             {/* Timeline dot with pulse */}
-            <motion.div 
+            <motion.div
                 className={styles.timelineDot}
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
-                viewport={{ once: false }}
-                transition={{ delay: index * 0.2 + 0.3, type: "spring" }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 + 0.5, type: "spring" }}
             >
                 <motion.div
                     className={styles.dotPulse}
-                    animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
             </motion.div>
 
             {/* Experience card with 3D effect */}
             <motion.div
+                ref={cardRef}
                 className={styles.card}
-                onMouseMove={(e) => {
-                    if (isMobile) return;
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    x.set(e.clientX - rect.left - rect.width / 2);
-                    y.set(e.clientY - rect.top - rect.height / 2);
-                }}
-                onMouseLeave={() => {
-                    x.set(0);
-                    y.set(0);
-                }}
-                style={isMobile ? {} : {
-                    rotateX,
-                    rotateY,
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                    rotateX: isMobile ? 0 : rotateX,
+                    rotateY: isMobile ? 0 : rotateY,
                     transformStyle: "preserve-3d"
                 }}
-                whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(0, 240, 255, 0.2)" }}
-                transition={{ type: 'spring', stiffness: 300 }}
             >
-                <motion.div
-                    className={styles.cardGlow}
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                />
+                <div className={styles.cardGlow} />
 
-                <div className={styles.cardHeader}>
-                    <div>
-                        <motion.h3 
-                            className={styles.role}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
-                            transition={{ delay: index * 0.2 + 0.4 }}
-                        >
-                            {experience.role}
-                        </motion.h3>
-                        <motion.p 
-                            className={styles.company}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
-                            transition={{ delay: index * 0.2 + 0.5 }}
-                        >
-                            {experience.company}
-                        </motion.p>
-                    </div>
-                    <motion.span 
-                        className={styles.period}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: false }}
-                        transition={{ delay: index * 0.2 + 0.6 }}
-                    >
+                <div className={styles.cardHeader} style={{ transform: "translateZ(50px)" }}>
+                    <motion.h3 className={styles.role}>
+                        {experience.role}
+                    </motion.h3>
+                    <motion.p className={styles.company}>
+                        {experience.company}
+                    </motion.p>
+                    <motion.span className={styles.period}>
                         {experience.duration}
                     </motion.span>
                 </div>
 
-                <motion.p 
-                    className={styles.description}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: false }}
-                    transition={{ delay: index * 0.2 + 0.7 }}
-                >
-                    {experience.description}
-                </motion.p>
+                <div style={{ transform: "translateZ(30px)" }}>
+                    <motion.p className={styles.description}>
+                        {experience.description}
+                    </motion.p>
 
-                <div className={styles.achievements}>
-                    <motion.h4 
-                        className={styles.achievementsTitle}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: false }}
-                        transition={{ delay: index * 0.2 + 0.8 }}
-                    >
-                        Key Achievements:
-                    </motion.h4>
-                    <ul>
-                        {experience.achievements.slice(0, 4).map((achievement, i) => (
-                            <motion.li
-                                key={i}
-                                initial={{ opacity: 0, x: isEven ? -20 : 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: false }}
-                                transition={{ delay: index * 0.2 + 0.9 + i * 0.1 }}
-                                whileHover={{ x: 5, color: "#00f0ff" }}
-                            >
-                                {achievement}
-                            </motion.li>
+                    <div className={styles.achievements}>
+                        <h4 className={styles.achievementsTitle}>Key Deliverables</h4>
+                        <ul>
+                            {experience.achievements.slice(0, 3).map((achievement: string, i: number) => (
+                                <motion.li
+                                    key={i}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.5 + (i * 0.1) }}
+                                >
+                                    {achievement}
+                                </motion.li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className={styles.technologies}>
+                        {experience.technologies.map((tech: string) => (
+                            <span key={tech} className={styles.techBadge}>
+                                {tech}
+                            </span>
                         ))}
-                    </ul>
+                    </div>
                 </div>
-
-                <motion.div 
-                    className={styles.technologies}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
-                    transition={{ delay: index * 0.2 + 1.2 }}
-                >
-                    {experience.technologies.map((tech, i) => (
-                        <motion.span
-                            key={tech}
-                            className={styles.techBadge}
-                            initial={{ opacity: 0, scale: 0 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: false }}
-                            transition={{ delay: index * 0.2 + 1.3 + i * 0.05 }}
-                            whileHover={{ scale: 1.1, y: -3 }}
-                        >
-                            {tech}
-                        </motion.span>
-                    ))}
-                </motion.div>
             </motion.div>
         </motion.div>
     );
