@@ -24,7 +24,7 @@
 
 .title {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2.25rem, 7.2vw, 3.6rem);
     font-weight: 900;
     text-transform: uppercase;
     background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-purple), var(--color-accent-magenta));

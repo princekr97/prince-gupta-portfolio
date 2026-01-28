@@ -1,8 +1,6 @@
-import { motion } from 'framer-motion';
 import { Navigation } from './components/layout/Navigation/Navigation';
 import { Loader } from './components/common/Loader/Loader';
 import { SEO } from './components/layout/SEO/SEO';
-import { Logo } from './components/common/Logo/Logo';
 import { CleanHero } from './components/CleanHero';
 import { About } from './components/sections/About/About';
 import { CleanSkills } from './components/CleanSkills';
@@ -12,6 +10,7 @@ import { ExperienceTimeline } from './components/sections/Experience/ExperienceT
 import { CleanContact } from './components/CleanContact';
 import { MagneticCursor } from './components/MagneticCursor';
 import { PWAInstallPrompt } from './components/common/PWAInstallPrompt';
+import { Footer } from './components/layout/Footer/Footer';
 import Lenis from 'lenis';
 import { useEffect } from 'react';
 import { useThemeStore } from './store/themeStore';
@@ -86,31 +85,7 @@ function App() {
       </main>
 
 
-      <motion.footer
-        className="modern-footer"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        style={{
-          padding: '4rem 1.5rem',
-          textAlign: 'center',
-          background: 'linear-gradient(180deg, #090a0f 0%, #000 100%)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '1.5rem'
-        }}
-      >
-        <Logo />
-        <p style={{
-          color: 'rgba(255, 255, 255, 0.5)',
-          fontSize: 'clamp(0.875rem, 2vw, 1rem)',
-          letterSpacing: '0.1em'
-        }}>
-          © {new Date().getFullYear()} Prince Kumar Gupta • Crafted with 💙
-        </p>
-      </motion.footer>
+      <Footer />
     </div>
   );
 }

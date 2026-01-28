@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import styles from './CleanContact.module.css';
-import { CyberCard } from './common/CyberCard';
-import { CyberButton } from './common/CyberButton';
 import usePortfolioData from '../hooks/usePortfolioData';
 
 export const CleanContact = () => {
@@ -15,49 +13,31 @@ export const CleanContact = () => {
   ];
 
   return (
-    <section className={styles.contact}>
+    <section className={styles.contact} id="contact">
       <div className={styles.content}>
-        <motion.h2
-          className={styles.title}
-          initial={{ opacity: 0, y: 50 }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          Let's Connect
-        </motion.h2>
-
-        <motion.p
-          className={styles.subtitle}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Ready to bring your ideas to life? Let's talk!
-        </motion.p>
+          <h2 className={styles.title}>Get In Touch</h2>
+          <p className={styles.subtitle}>Establishing connection to future possibilities</p>
+        </motion.div>
 
         <div className={styles.contactGrid}>
           {contactMethods.map((method, index) => (
             <motion.div
               key={method.label}
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.15,
-                ease: [0.4, 0, 0.2, 1]
-              }}
-              style={{ width: '100%', height: '100%' }}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={styles.contactCard}
             >
-              <CyberCard>
-                <div className={styles.contactCard}>
-                  <div className={styles.icon}>{method.icon}</div>
-                  <h3 className={styles.label}>{method.label}</h3>
-                  <p className={styles.value}>{method.value}</p>
-                </div>
-              </CyberCard>
+              <div className={styles.icon}>{method.icon}</div>
+              <h3 className={styles.label}>{method.label}</h3>
+              <p className={styles.value}>{method.value}</p>
             </motion.div>
           ))}
         </div>
@@ -66,21 +46,26 @@ export const CleanContact = () => {
           className={styles.ctaSection}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
         >
-          <CyberButton
-            variant="primary"
-            size="lg"
+          <motion.a
             href="/resume.pdf"
-            download="Prince_Kumar_Gupta_Resume.pdf"
+            className={`${styles.btnBase} ${styles.btnPrimary}`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Download Resume
-          </CyberButton>
+          </motion.a>
 
-          <CyberButton variant="secondary" size="lg">
-            Schedule Call
-          </CyberButton>
+          <motion.a
+            href={`mailto:${data.contact.email}`}
+            className={`${styles.btnBase} ${styles.btnSecondary}`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Schedule Briefing
+          </motion.a>
         </motion.div>
       </div>
     </section>
