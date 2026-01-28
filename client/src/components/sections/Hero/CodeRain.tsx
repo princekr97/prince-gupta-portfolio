@@ -39,13 +39,13 @@ export const CodeRain = () => {
   useEffect(() => {
     const generateLines = () => {
       const newLines: CodeLine[] = [];
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 30; i++) {
         newLines.push({
           id: i,
           text: codeSnippets[Math.floor(Math.random() * codeSnippets.length)],
           x: Math.random() * 100,
-          delay: Math.random() * 5,
-          duration: 15 + Math.random() * 10,
+          delay: Math.random() * 10,
+          duration: 8 + Math.random() * 12,
         });
       }
       setLines(newLines);
@@ -64,7 +64,7 @@ export const CodeRain = () => {
           initial={{ y: '-100%', opacity: 0 }}
           animate={{
             y: '100vh',
-            opacity: [0, 0.6, 0.6, 0],
+            opacity: [0, 0.8, 0.8, 0],
           }}
           transition={{
             duration: line.duration,
