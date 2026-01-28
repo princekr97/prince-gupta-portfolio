@@ -75,14 +75,24 @@ const TimelineCard = ({
     return (
         <motion.div
             className={`${styles.timelineItem} ${isEven ? styles.left : styles.right}`}
-            initial={{ opacity: 0, x: isMobile ? 50 : (isEven ? -100 : 100) }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            initial={{
+                opacity: 0,
+                x: isMobile ? 30 : (isEven ? -100 : 100),
+                rotateY: isMobile ? 25 : 0,
+                perspective: 1000
+            }}
+            whileInView={{
+                opacity: 1,
+                x: 0,
+                rotateY: 0
+            }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{
                 duration: 0.8,
                 delay: index * 0.1,
                 type: "spring",
-                stiffness: 50
+                stiffness: 40,
+                damping: 15
             }}
         >
             {/* Timeline dot with pulse */}
