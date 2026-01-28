@@ -1,367 +1,209 @@
 .skills {
+  padding: 80px 0;
   position: relative;
-  min-height: 100vh;
-  padding: 6rem 2rem;
-  background: linear-gradient(135deg, #0f1419 0%, #1a2332 25%, #0d1520 50%, #1e2a3f 75%, #0f1419 100%);
+  background: var(--color-bg-primary);
   overflow: hidden;
 }
 
-.skills::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.4), transparent);
-}
-
-.skills::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(0, 240, 255, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.03) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.content {
+.skillsContent {
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
+  z-index: 2;
 }
 
-.title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 600;
+.header {
   text-align: center;
-  margin-bottom: 0.5rem;
-  color: #fff;
-  letter-spacing: -0.02em;
+  margin-bottom: 60px;
+}
+
+.titleGlitch {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-purple), var(--color-accent-magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  letter-spacing: -2px;
 }
 
 .subtitle {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: clamp(0.875rem, 1.5vw, 1rem);
-  margin-bottom: 2.5rem;
-  letter-spacing: 0.05em;
+  font-family: 'Space Mono', monospace;
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tabsHeader {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
 }
 
 .tabsContainer {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  padding: 0 1rem;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 100px;
+  border: 1px solid var(--color-border-primary);
+  backdrop-filter: blur(10px);
 }
 
-.tabButton {
+.tabBtn {
   position: relative;
+  padding: 0.8rem 1.5rem;
+  border-radius: 100px;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(0, 240, 255, 0.1);
-  border-radius: 50px;
-  color: rgba(255, 255, 255, 0.6);
-  font-family: var(--font-display);
+  color: var(--color-text-secondary);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
+  transition: all 0.3s var(--ease-smooth);
+  background: transparent;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
-.tabButton:hover {
-  background: rgba(0, 240, 255, 0.05);
-  border-color: rgba(0, 240, 255, 0.3);
-  color: #fff;
-  transform: translateY(-2px);
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .activeTab {
-  color: #00f0ff;
-  border-color: rgba(0, 240, 255, 0.5);
-  background: rgba(0, 240, 255, 0.1);
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+  color: var(--color-text-primary);
 }
 
 .tabIcon {
-  font-size: 1.1rem;
-  filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.3));
+  font-size: 1.2rem;
 }
 
-.activeIndicator {
+.activeTabIndicator {
   position: absolute;
   inset: 0;
-  border-radius: 50px;
-  border: 1px solid #00f0ff;
-  pointer-events: none;
-  z-index: 1;
+  background: var(--gradient-primary);
+  border-radius: 100px;
+  z-index: -1;
+  opacity: 0.2;
+  border: 1px solid var(--color-accent-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
 }
 
 .skillsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
-  perspective: 1000px;
+  padding: 20px;
 }
 
 .skillCard {
   position: relative;
-  height: 280px;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-smooth);
 }
 
-.cardInner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
+.skillCard:hover {
+  border-color: var(--color-accent-cyan);
+  background: rgba(0, 240, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.cardFront,
-.cardBack {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 16px;
+.cardHeader {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
 }
 
-.cardFront {
-  background: linear-gradient(135deg, rgba(20, 25, 35, 0.95), rgba(30, 35, 50, 0.95));
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.cardBack {
-  transform: rotateY(180deg);
-  color: #fff;
-}
-
-.iconWrapper {
-  margin-bottom: 1.5rem;
-}
-
-.icon {
-  font-size: 3rem;
-  color: #00f0ff;
+.skillIcon {
+  font-size: 2.5rem;
 }
 
 .skillName {
-  font-size: 1.15rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.5px;
+}
+
+.progressContainer {
+  width: 100%;
+}
+
+.levelHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.levelText {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-accent-cyan);
   font-weight: 600;
-  color: #fff;
-  margin-bottom: 1rem;
-  text-align: center;
 }
 
-.staggerContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-}
-
-.percentText {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.levelBarsContainer {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  width: 100%;
-  max-width: 200px;
-}
-
-.levelBarFront {
-  flex: 1;
-  height: 8px;
-  border-radius: 4px;
-  transform-origin: left;
-}
-
-.expertLabel {
+.levelPercent {
+  font-family: 'Space Mono', monospace;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.circularProgress {
-  position: relative;
-  width: 120px;
-  height: 120px;
-}
-
-.backContent {
-  text-align: center;
-}
-
-.backIcon {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  display: block;
-  color: #1a1a1a;
-}
-
-.backTitle {
-  font-size: 1.5rem;
+  color: var(--color-text-primary);
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #1a1a1a;
 }
 
-.levelBars {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.levelBar {
-  width: 40px;
+.track {
+  width: 100%;
   height: 6px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 3px;
-  transform-origin: left;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.backText {
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.9;
-  color: #333;
+.fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  box-shadow: 0 0 15px var(--color-accent-cyan);
+}
+
+.cardGlow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at top right, rgba(0, 240, 255, 0.1), transparent 70%);
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
   .skills {
-    padding: 2rem 1rem;
-    min-height: auto;
+    padding: 80px 0;
   }
 
-  .title {
-    margin-bottom: 0.5rem;
-    font-size: 1.75rem;
-  }
-
-  .subtitle {
-    margin-bottom: 1.5rem;
-    font-size: 0.8rem;
+  .titleGlitch {
+    font-size: 2.5rem;
   }
 
   .tabsContainer {
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    justify-content: center;
   }
 
-  .tabButton {
-    padding: 0.5rem 1rem;
-    gap: 0.5rem;
+  .tabBtn {
+    padding: 0.6rem 1rem;
     font-size: 0.75rem;
   }
 
-  .tabIcon {
-    font-size: 0.9rem;
-  }
-
-  .skillsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
-  .skillCard {
-    height: 180px;
-    transform: none !important;
-  }
-
-  .cardFront,
-  .cardBack {
-    padding: 0.75rem;
-  }
-
-  .icon {
-    font-size: 1.5rem;
-  }
-
-  .iconWrapper {
-    margin-bottom: 0.5rem;
-  }
-
-  .skillName {
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .percentText {
-    font-size: 1.5rem;
-  }
-
-  .levelBarsContainer {
-    max-width: 120px;
-  }
-
-  .levelBarFront {
-    height: 4px;
-  }
-
-  .expertLabel {
-    display: none;
-  }
-
-  .backIcon {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .backTitle {
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .levelBars {
-    gap: 0.25rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .levelBar {
-    width: 18px;
-    height: 3px;
-  }
-
-  .backText {
-    font-size: 0.65rem;
-  }
-}
-
-@media (max-width: 390px) {
   .skillsGrid {
     grid-template-columns: 1fr;
-  }
-
-  .skillCard {
-    height: 180px;
+    gap: 1.5rem;
   }
 }

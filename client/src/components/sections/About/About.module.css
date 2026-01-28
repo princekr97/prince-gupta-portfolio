@@ -1,6 +1,6 @@
 .about {
     position: relative;
-    padding: var(--space-24) 0;
+    padding: var(--space-10) 0;
     overflow: hidden;
     background: var(--color-bg-primary);
 }
@@ -254,9 +254,61 @@
     color: var(--color-text-primary);
 }
 
-/* Tech Stack Section */
-.techStackSection {
+/* Skills Grid with Tabs */
+.skillsSection {
     margin-top: 3rem;
+}
+
+.tabsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.tabsContainer {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 100px;
+    border: 1px solid var(--color-border-primary);
+}
+
+.tabBtn {
+    position: relative;
+    padding: 0.6rem 1.2rem;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s var(--ease-smooth);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.activeTab {
+    color: var(--color-text-primary);
+}
+
+.tabIcon {
+    font-size: 1.1rem;
+}
+
+.activeTabIndicator {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    border-radius: 100px;
+    z-index: -1;
+    opacity: 0.2;
+    border: 1px solid var(--color-accent-cyan);
 }
 
 .techGridTitle {
@@ -265,8 +317,8 @@
     text-transform: uppercase;
     letter-spacing: 4px;
     color: var(--color-accent-cyan);
-    margin-bottom: 2rem;
     font-weight: 700;
+    margin-bottom: 0;
 }
 
 .techGrid {
@@ -303,6 +355,21 @@
     font-size: 0.875rem;
     font-weight: 700;
     color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.skillLevelTrack {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.skillLevelFill {
+    height: 100%;
+    background: var(--gradient-primary);
+    box-shadow: 0 0 10px var(--color-accent-cyan);
 }
 
 @media (max-width: 1200px) {

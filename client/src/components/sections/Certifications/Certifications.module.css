@@ -1,5 +1,5 @@
 .certs {
-    padding: var(--space-20) 0;
+    padding: var(--space-10) 0;
     position: relative;
     background: linear-gradient(180deg, transparent 0%, rgba(0, 240, 255, 0.02) 50%, transparent 100%);
 }

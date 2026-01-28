@@ -68,7 +68,7 @@ export const About = () => {
 
                         <p className={styles.description}>
                             <span className={styles.descriptionHighlight}>{data.stats.experience}+ years of experience</span> building scalable, high-performance web applications across
-                            <span className={styles.descriptionHighlight}> frontend, backend, and databases</span>. I specialize in {techs.slice(0, 4).map(t => t.name).join(', ')},
+                            <span className={styles.descriptionHighlight}> frontend, backend, and databases</span>. I specialize in React, Angular, Node.js, and TypeScript,
                             delivering clean, maintainable, production-ready systems used at scale.
                         </p>
 
@@ -102,44 +102,12 @@ export const About = () => {
                                 ))}
                             </div>
                         </div>
-
-                        {/* Technologies */}
-                        <div className={styles.techStackSection}>
-                            <h2 className={styles.techGridTitle}>Core Technologies</h2>
-                            <div className={styles.techGrid}>
-                                {techs.map((tech, i) => (
-                                    <motion.div
-                                        key={i}
-                                        className={styles.techCard}
-                                        whileHover={{ y: -10, scale: 1.05 }}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: i * 0.1 }}
-                                    >
-                                        <span className={styles.techIcon}>{tech.icon}</span>
-                                        <div className={styles.techName}>{tech.name}</div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
                     </motion.div>
                 </div>
             </div>
         </section>
     );
 };
-
-const techs = [
-    { name: 'React', icon: '⚛️' },
-    { name: 'Angular', icon: '🅰️' },
-    { name: 'Vue.js', icon: '💚' },
-    { name: 'Node.js', icon: '🟢' },
-    { name: 'TypeScript', icon: '📘' },
-    { name: 'MongoDB', icon: '🍃' },
-    { name: 'PostgreSQL', icon: '🐘' },
-    { name: 'REST APIs', icon: '🔌' }
-];
 
 const socials = [
     { name: 'LinkedIn', icon: '💼', url: 'https://www.linkedin.com/in/prince-kumargupta-59796014b' },
