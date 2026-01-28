@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "framework": "vite",
+    "buildCommand": "npm run build:no-check",
+    "outputDirectory": "dist",
+    "cleanUrls": true,
+    "trailingSlash": false
+}

@@ -1,8 +1,0 @@
-{
-    "version": 2,
-    "framework": "vite",
-    "buildCommand": "npm install --prefix client && npx vite build client",
-    "outputDirectory": "client/dist",
-    "cleanUrls": true,
-    "trailingSlash": false
-}
