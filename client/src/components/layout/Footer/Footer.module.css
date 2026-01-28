@@ -1,5 +1,5 @@
 .footer {
-    padding: 6rem 0 3rem;
+    padding: var(--space-12) 0 var(--space-8);
     position: relative;
     background: var(--color-bg-primary);
     overflow: hidden;
@@ -110,7 +110,7 @@
 
 @media (max-width: 768px) {
     .footer {
-        padding: 4rem 0 2rem;
+        padding: var(--space-10) 0 var(--space-6);
     }
 
     .bottomSection {

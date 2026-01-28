@@ -6,7 +6,6 @@ import { useNavigationStore } from '../../../store/navigationStore';
 import { useThemeStore } from '../../../store/themeStore';
 import { useHaptics } from '../../../hooks/useHaptics';
 import { Logo } from '../../common/Logo/Logo';
-import { Button } from '@components/common/Button';
 import usePortfolioData from '../../../hooks/usePortfolioData';
 
 const navItems = [
@@ -137,11 +136,11 @@ export const Navigation = () => {
                             <span></span>
                         </button>
 
-                        <div className={styles.resumeBtn}>
+                        {/* <div className={styles.resumeBtn}>
                             <a href="/resume.pdf" download="Prince_Kumar_Gupta_Resume.pdf">
                                 <Button variant="ghost" size="sm">Resume</Button>
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

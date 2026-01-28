@@ -11,7 +11,7 @@ export const Certifications = () => {
 
     return (
         <section className={styles.certs} id="certifications">
-            <div className={styles.container}>
+            <div className="container">
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 30 }}

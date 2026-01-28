@@ -175,12 +175,12 @@ a:hover {
 }
 
 .section {
-    padding-block: var(--space-16);
+    padding-block: 0;
 }
 
 @media (min-width: 768px) {
     .section {
-        padding-block: var(--space-24);
+        padding-block: 0;
     }
 }
 
@@ -219,23 +219,28 @@ a:hover {
 
 @media (max-width: 768px) {
     body {
-        font-size: 16px; /* Prevent zoom on input focus */
+        font-size: 16px;
+        /* Prevent zoom on input focus */
     }
-    
+
     .container {
         padding-inline: var(--space-4);
     }
-    
+
     .section {
-        padding-block: var(--space-12);
+        padding-block: 0;
     }
-    
+
     /* Optimize touch targets */
-    button, a, input, select, textarea {
+    button,
+    a,
+    input,
+    select,
+    textarea {
         min-height: 44px;
         min-width: 44px;
     }
-    
+
     /* Prevent text size adjustment */
     html {
         -webkit-text-size-adjust: 100%;

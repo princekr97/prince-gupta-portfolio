@@ -63,7 +63,7 @@ export const About = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <h1 className={styles.titleGlitch}>Full Stack</h1>
+                        <h2 className={styles.titleGlitch}>Full Stack</h2>
                         <div className={styles.sectionSubtitle}>Developer</div>
 
                         <p className={styles.description}>

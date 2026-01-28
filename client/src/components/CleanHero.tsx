@@ -29,7 +29,7 @@ export const CleanHero = () => {
     <section className={styles.hero}>
       {/* Animated Code Background */}
       <CodeRain />
-      
+
       {/* Floating Orbs */}
       <div className={styles.orb1} />
       <div className={styles.orb2} />
@@ -100,7 +100,7 @@ export const CleanHero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          <motion.div 
+          <motion.div
             className={styles.role}
             initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -108,7 +108,7 @@ export const CleanHero = () => {
           >
             {data.personal.title}
           </motion.div>
-          <motion.p 
+          <motion.p
             className={styles.subtitle}
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -116,7 +116,7 @@ export const CleanHero = () => {
           >
             {data.personal.subtitle}
           </motion.p>
-          <motion.p 
+          <motion.p
             className={styles.tagline}
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}

@@ -1,5 +1,5 @@
 .showcase {
-    padding: 6rem 0;
+    padding: var(--space-10) 0;
     position: relative;
     background: var(--color-bg-primary);
     overflow: hidden;
@@ -75,9 +75,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 2.5rem;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
 }
 
 .cardWrapper {
