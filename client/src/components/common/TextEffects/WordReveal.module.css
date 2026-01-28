@@ -1,0 +1,16 @@
+.wrapper {
+    display: inline-flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.wordWrapper {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.word {
+    display: inline-block;
+    will-change: transform;
+}

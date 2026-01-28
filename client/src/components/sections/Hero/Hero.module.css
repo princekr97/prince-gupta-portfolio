@@ -1,0 +1,400 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1200px;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 25%, #0d1520 50%, #1e2a3f 75%, #0f1419 100%);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(0, 240, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(255, 0, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Background effects */
+.backgroundEffects {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.canvasContainer {
+    position: absolute;
+    inset: 0;
+    opacity: 0.6;
+    filter: blur(40px);
+    z-index: 0;
+}
+
+.morphOverlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.morphPath {
+    filter: drop-shadow(0 0 20px currentColor);
+}
+
+.gridPattern {
+    position: absolute;
+    inset: -50%;
+    background-image:
+        linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform-origin: center;
+    perspective: 500px;
+    transform: translateZ(-200px);
+    animation: gridMove 20s linear infinite;
+    mask-image: radial-gradient(circle at center, white, transparent 80%);
+}
+
+@keyframes gridMove {
+    0% {
+        transform: translateZ(-200px) translateY(0);
+    }
+
+    100% {
+        transform: translateZ(-200px) translateY(50px);
+    }
+}
+
+.floatingShape {
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    width: 128px;
+    height: 128px;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    transform: translateZ(-80px);
+    z-index: -1;
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1);
+    animation: floatPulse 4s ease-in-out infinite;
+}
+
+@keyframes floatPulse {
+    0%, 100% {
+        box-shadow: 0 0 40px rgba(0, 240, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1);
+        border-color: rgba(0, 240, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(0, 240, 255, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.2);
+        border-color: rgba(0, 240, 255, 0.6);
+    }
+}
+
+.gradientOrb {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(0, 240, 255, 0.25) 0%,
+            rgba(123, 97, 255, 0.15) 50%,
+            transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    animation: orbPulse 8s ease-in-out infinite;
+}
+
+@keyframes orbPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.mouseGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(80px);
+}
+
+.geometricShape {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    perspective: 1000px;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 20s infinite linear;
+}
+
+@keyframes rotateCube {
+    from {
+        transform: rotateX(0) rotateY(0);
+    }
+
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.face {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--color-accent-cyan);
+    backdrop-filter: blur(2px);
+}
+
+.face:nth-child(1) {
+    transform: translateZ(30px);
+}
+
+.face:nth-child(2) {
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.face:nth-child(3) {
+    transform: rotateY(180deg) translateZ(30px);
+}
+
+.face:nth-child(4) {
+    transform: rotateY(-90deg) translateZ(30px);
+}
+
+.face:nth-child(5) {
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.face:nth-child(6) {
+    transform: rotateX(-90deg) translateZ(30px);
+}
+
+.codeSnippets {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.codeSnippet {
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--color-accent-cyan);
+    opacity: 0.4;
+    white-space: nowrap;
+    pointer-events: none;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    font-weight: 500;
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 1200px;
+    padding: 0 32px;
+    transform-style: preserve-3d;
+}
+
+.greeting {
+    font-size: 14px;
+    font-weight: var(--font-medium);
+    color: var(--color-accent-cyan);
+    margin-bottom: 16px;
+    letter-spacing: 0.25em;
+    opacity: 0.7;
+    text-transform: uppercase;
+    transform: translateZ(20px);
+}
+
+.name {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-text-primary);
+    transform: translateZ(40px);
+}
+
+.gradientName {
+    font-size: 56px;
+    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-magenta), var(--color-accent-cyan));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transform: translateZ(50px);
+    animation: gradientFlow 3s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.5));
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.nameContainer {
+    margin-bottom: var(--space-4);
+    perspective: 1000px;
+}
+
+.kineticName {
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-4xl), 8vw, var(--text-7xl));
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.1em;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.kineticLetter {
+    display: inline-block;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-magenta));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform-origin: center;
+    position: relative;
+    transition: color 0.2s;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.roleContainer {
+    font-size: var(--text-xl);
+    font-family: var(--font-display);
+    margin-bottom: var(--space-6);
+    min-height: 2rem;
+}
+
+.roleLabel {
+    color: var(--color-text-secondary);
+}
+
+.typedText {
+    color: var(--color-accent-magenta);
+    font-weight: var(--font-semibold);
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.tagline {
+    font-size: 18px;
+    color: var(--color-text-primary);
+    opacity: 0.75;
+    margin-bottom: 40px;
+    max-width: 520px;
+    margin-inline: auto;
+    line-height: var(--leading-relaxed);
+}
+
+.cta {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.scrollIndicator {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-accent-cyan);
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content {
+        padding: var(--space-4);
+    }
+
+    .cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .gradientOrb {
+        width: 400px;
+        height: 400px;
+        top: 10%;
+        right: -100px;
+    }
+
+    .codeSnippet {
+        font-size: var(--text-xs);
+    }
+}

@@ -1,0 +1,74 @@
+.liquidHero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvasContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  filter: blur(60px);
+}
+
+.morphOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.morphPath {
+  filter: drop-shadow(0 0 20px currentColor);
+}
+
+.nameContainer {
+  position: relative;
+  z-index: 10;
+  padding: 0 2rem;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.kineticName {
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  font-weight: 900;
+  text-align: center;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.kineticLetter {
+  display: inline-block;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00f0ff 0%, #7b61ff 50%, #ff00e5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .kineticName {
+    font-size: clamp(2rem, 6vw, 4rem);
+  }
+  
+  .nameContainer {
+    padding: 0 1rem;
+  }
+}

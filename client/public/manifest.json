@@ -1,0 +1,63 @@
+{
+  "name": "Prince Kumar Gupta | Senior Software Engineer",
+  "short_name": "Prince.G",
+  "description": "🚀 Senior Software Engineer Portfolio of Prince Kumar Gupta - Specialized in React, TypeScript, PWA, and Scalable Enterprise Solutions.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f1419",
+  "theme_color": "#00f0ff",
+  "orientation": "portrait",
+  "scope": "/",
+  "categories": [
+    "portfolio",
+    "developer",
+    "engineer"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "About Me",
+      "url": "/#about",
+      "icons": [
+        {
+          "src": "/icons/icon.svg",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Skills",
+      "url": "/#skills",
+      "icons": [
+        {
+          "src": "/icons/icon.svg",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "url": "/#projects",
+      "icons": [
+        {
+          "src": "/icons/icon.svg",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

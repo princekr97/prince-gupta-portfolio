@@ -1,0 +1,417 @@
+{
+  "personal": {
+    "name": "Prince Kumar Gupta",
+    "title": "Full Stack Developer",
+    "subtitle": "React | Angular | Node.js | LMS | PWA | ONDC",
+    "tagline": "Building Scalable Enterprise Applications",
+    "location": "Bengaluru, Karnataka, India",
+    "summary": "Full Stack Developer with 6+ years of experience building scalable, high-performance web applications across frontend, backend, and databases. I specialize in React, Angular, Node.js, and REST APIs, delivering clean, maintainable, production-ready systems used at scale. I own features end-to-end — from UI/UX implementation to backend architecture, API optimization, and database design. Focused on performance, reliability, and long-term maintainability.",
+    "yearsOfExperience": "6+",
+    "expertise": [
+      "End-to-end feature ownership",
+      "UI/UX implementation",
+      "Backend architecture",
+      "API optimization",
+      "Database design",
+      "Performance tuning",
+      "Clean, maintainable code",
+      "Production-ready systems"
+    ],
+    "keyProjects": [
+      {
+        "name": "SIMS Portal",
+        "client": "Reckitt Benckiser (RB) & MAF",
+        "description": "Built a Supplier Invoice Management System Framework, improving invoice workflows and reducing manual effort."
+      },
+      {
+        "name": "EkStep — Sunbird LMS Platform",
+        "client": "EkStep Foundation",
+        "description": "Contributed to a nation-scale LMS supporting large learner volumes across India with a focus on scalability and stability."
+      },
+      {
+        "name": "OLA ONDC Grocery",
+        "client": "Ani Technologies (SDE-2)",
+        "description": "Developed a PWA for ONDC-based food & grocery delivery, supporting 20-30 minute delivery and scheduled orders."
+      },
+      {
+        "name": "CellMark",
+        "client": "CellMark",
+        "description": "Delivered enterprise-grade solutions improving supplier–customer workflows and system reliability."
+      },
+      {
+        "name": "Healthcare LMS",
+        "client": "Aastrika Foundation",
+        "description": "Developing a Healthcare LMS delivering training programs across Bihar, UP, MP, and other states."
+      }
+    ]
+  },
+  "contact": {
+    "phone": "NA",
+    "email": "princekrgupta756@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/prince-kumargupta-59796014b",
+    "github": "https://github.com/",
+    "location": "Bengaluru, Karnataka, India"
+  },
+  "skills": {
+    "frontend": [
+      {
+        "name": "React.js",
+        "level": 95,
+        "icon": "⚛️"
+      },
+      {
+        "name": "Angular",
+        "level": 90,
+        "icon": "🅰️"
+      },
+      {
+        "name": "Vue.js",
+        "level": 85,
+        "icon": "💚"
+      },
+      {
+        "name": "TypeScript",
+        "level": 90,
+        "icon": "📘"
+      },
+      {
+        "name": "JavaScript",
+        "level": 95,
+        "icon": "🟨"
+      },
+      {
+        "name": "HTML5/CSS3",
+        "level": 95,
+        "icon": "🎨"
+      }
+    ],
+    "backend": [
+      {
+        "name": "Node.js",
+        "level": 90,
+        "icon": "🟢"
+      },
+      {
+        "name": "Express.js",
+        "level": 88,
+        "icon": "⚡"
+      },
+      {
+        "name": "REST APIs",
+        "level": 92,
+        "icon": "🔌"
+      }
+    ],
+    "database": [
+      {
+        "name": "MongoDB",
+        "level": 85,
+        "icon": "🍃"
+      },
+      {
+        "name": "PostgreSQL",
+        "level": 80,
+        "icon": "🐘"
+      },
+      {
+        "name": "SQL",
+        "level": 85,
+        "icon": "💾"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Git/GitHub",
+        "level": 90,
+        "icon": "🔧"
+      },
+      {
+        "name": "Jest",
+        "level": 85,
+        "icon": "🧪"
+      },
+      {
+        "name": "Agile/Scrum",
+        "level": 88,
+        "icon": "📋"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "id": 1,
+      "company": "Tarento Group",
+      "role": "Senior Software Engineer",
+      "duration": "November 2024 - Present",
+      "period": "1 year 3 months",
+      "location": "Bengaluru, Karnataka, India",
+      "description": "Leading development of Sunbird ED Building Blocks, highly scalable open-source learning products utilized by Diksha as an adopter for Ekstep.",
+      "achievements": [
+        "Spearheaded development of Sunbird ED Portal using Angular 12+, NodeJS, and Form APIs",
+        "Engineered key features transitioning hardcoded logic to framework-agnostic solutions",
+        "Implemented rigorous unit tests using Jest Framework ensuring robust code quality",
+        "Managed Angular libraries ensuring security standards and compatibility"
+      ],
+      "technologies": [
+        "Angular",
+        "Node.js",
+        "TypeScript",
+        "Jest",
+        "REST APIs"
+      ],
+      "links": {
+        "portal": "https://staging.sunbirded.org/",
+        "github": "https://github.com/Sunbird-Ed/SunbirdEd-portal"
+      }
+    },
+    {
+      "id": 2,
+      "company": "Tarento Group",
+      "role": "Software Engineer",
+      "duration": "September 2022 - November 2024",
+      "period": "2 years 3 months",
+      "location": "Bengaluru, Karnataka, India",
+      "description": "Contributed to Sunbird ED Building Blocks for nation-scale LMS supporting large learner volumes across India.",
+      "achievements": [
+        "Analyzed business requirements to engineer efficient technical solutions",
+        "Produced user-friendly technical documentation and architecture designs",
+        "Enhanced platform scalability and stability for millions of users"
+      ],
+      "technologies": [
+        "Angular",
+        "Node.js",
+        "MongoDB",
+        "REST APIs"
+      ]
+    },
+    {
+      "id": 3,
+      "company": "OLA (Ani Technologies)",
+      "role": "Senior Software Engineer (SDE-2)",
+      "duration": "July 2024 - April 2025",
+      "period": "10 months",
+      "location": "Bengaluru, Karnataka, India",
+      "description": "Led frontend development for OLA's ONDC Grocery Project, transforming the online grocery shopping experience using the Open Network for Digital Commerce (ONDC) framework.",
+      "achievements": [
+        "Led frontend development for OLA Grocery ensuring seamless feature rollouts",
+        "Worked closely with product and business teams to implement product requirements",
+        "Translated Figma designs into pixel-perfect, high-performance UI components",
+        "Optimized frontend performance ensuring fast load times and smooth user interactions",
+        "Contributed to aligning OLA Grocery with ONDC protocols",
+        "Developed 20-30 min delivery and same-day scheduled delivery features",
+        "Improved store & subcategory navigation with batch data loading",
+        "Enhanced product discovery with structured category-based browsing",
+        "Implemented unified search suggestions and category-wise item listings",
+        "Reduced page load times and enhanced UI responsiveness across devices",
+        "Delivered key features and production fixes for OLA Foods platform stability"
+      ],
+      "technologies": [
+        "Vue.js",
+        "Node.js",
+        "JavaScript",
+        "HTML/CSS",
+        "PWA",
+        "ONDC"
+      ],
+      "keyFeatures": [
+        "Now & Later Delivery (20-30 min + scheduled)",
+        "Homepage Revamp with batch data loading",
+        "Category & Subcategory Pages",
+        "Unified Search with suggestions",
+        "Performance Optimization",
+        "OLA Foods Contributions"
+      ]
+    },
+    {
+      "id": 4,
+      "company": "Muraai Information Technology",
+      "role": "Software Consultant",
+      "duration": "January 2021 - September 2022",
+      "period": "1 year 9 months",
+      "location": "Bangalore, Karnataka, India",
+      "description": "Delivered enterprise-grade solutions improving supplier-customer workflows and system reliability.",
+      "achievements": [
+        "Built scalable web applications for enterprise clients",
+        "Improved system reliability and performance"
+      ],
+      "technologies": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express.js"
+      ]
+    },
+    {
+      "id": 5,
+      "company": "Muraai Information Technology",
+      "role": "Associate Software Consultant",
+      "duration": "September 2019 - December 2020",
+      "period": "1 year 4 months",
+      "location": "Bangalore, Karnataka, India",
+      "description": "Developed full-stack applications and contributed to multiple client projects.",
+      "achievements": [
+        "Delivered features end-to-end from UI to database",
+        "Collaborated with cross-functional teams"
+      ],
+      "technologies": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "SQL"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "OLA ONDC Grocery & Food Delivery",
+      "category": "E-Commerce PWA",
+      "description": "Progressive Web App for ONDC-based food & grocery delivery with 20-30 min delivery, scheduled orders, unified search, and optimized performance across devices.",
+      "image": "/projects/ola-grocery.jpg",
+      "technologies": [
+        "Vue.js",
+        "Node.js",
+        "JavaScript",
+        "HTML/CSS",
+        "PWA",
+        "ONDC"
+      ],
+      "features": [
+        "20-30 min instant delivery",
+        "Same-day scheduled delivery",
+        "Unified search with suggestions",
+        "Category-based browsing",
+        "Homepage revamp with batch loading",
+        "Performance optimized UI",
+        "OLA Foods platform stability"
+      ],
+      "details": {
+        "challenge": "Migrating OLA's grocery offerings to the ONDC framework while maintaining sub-30 minute delivery expectations and ensuring a high-performance PWA experience for millions of users.",
+        "solution": "Architected a Vue.js based PWA that integrated directly with ONDC protocols. Implemented batch data loading and pixel-perfect UI components from Figma to ensure fluid navigation and fast TTI (Time to Interactive).",
+        "outcomes": [
+          "Successfully launched ONDC grocery across major Indian metros.",
+          "Handled thousands of concurrent users with sub-second page transitions.",
+          "Reduced frontend load times by 40% through code splitting and asset optimization."
+        ]
+      },
+      "impact": "Serving thousands of users with fast delivery experience and seamless ONDC integration",
+      "link": "https://www.olacabs.com",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Sunbird ED - National LMS Platform",
+      "category": "Education Technology",
+      "description": "Nation-scale Learning Management System supporting millions of learners across India through Diksha platform.",
+      "image": "/projects/sunbird-ed.jpg",
+      "technologies": [
+        "Angular",
+        "Node.js",
+        "TypeScript",
+        "Jest"
+      ],
+      "features": [
+        "Scalable architecture for millions of users",
+        "Framework-agnostic solutions",
+        "Comprehensive unit testing",
+        "Open-source contribution"
+      ],
+      "details": {
+        "challenge": "Scaling a national learning platform to support varied internet speeds and diverse devices across India while transitioning from hardcoded logic to a flexible, adopter-friendly framework.",
+        "solution": "Engineered framework-agnostic 'Building Blocks' using Angular 12 and Node.js. Developed the Sunbird ED Portal with a focus on modularity, allowing different adopters (like Diksha) to seamlessly integrate and customize the LMS.",
+        "outcomes": [
+          "Platform currently serves millions of students nationwide.",
+          "Achieved high code reliability through 80%+ test coverage with Jest.",
+          "Improved platform stability during peak usage hours (exam seasons)."
+        ]
+      },
+      "impact": "Supporting education for millions of students across India",
+      "link": "https://staging.sunbirded.org/",
+      "github": "https://github.com/Sunbird-Ed/SunbirdEd-portal",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Healthcare LMS - Aastrika Foundation",
+      "category": "Healthcare Training",
+      "description": "Healthcare Learning Management System delivering training programs across Bihar, UP, MP, and other states.",
+      "image": "/projects/healthcare-lms.jpg",
+      "technologies": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express.js"
+      ],
+      "features": [
+        "Multi-state training delivery",
+        "Healthcare-specific modules",
+        "Progress tracking",
+        "Certificate generation"
+      ],
+      "details": {
+        "challenge": "Creating an accessible training platform for healthcare workers in rural areas with limited connectivity, requiring offline support and verifiable certification.",
+        "solution": "Built a robust React/Node.js application with MongoDB. Developed an automated certificate generation engine and a progress tracking system that works reliably across 4+ Indian states.",
+        "outcomes": [
+          "Empowered thousands of healthcare workers with digital training.",
+          "Streamlined the certification process for multi-state government programs.",
+          "Enhanced tracking for health department administrators."
+        ]
+      },
+      "impact": "Training healthcare workers across multiple Indian states",
+      "featured": true
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Meta Front-End Developer Specialization",
+      "issuer": "Coursera / Meta",
+      "date": "2023",
+      "icon": "🎓",
+      "link": "#"
+    },
+    {
+      "title": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "2023",
+      "icon": "☁️",
+      "link": "#"
+    },
+    {
+      "title": "Sunbird Certified Contributor",
+      "issuer": "EkStep Foundation",
+      "date": "2022",
+      "icon": "🌟",
+      "link": "#"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Engineering",
+      "field": "Computer Science",
+      "institution": "Sambhram Institute of Technology",
+      "location": "Bangalore",
+      "duration": "2015 - 2019"
+    },
+    {
+      "degree": "12th Grade",
+      "field": "Science",
+      "institution": "Rawat Public School",
+      "duration": "2013 - 2015"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Disease Prediction by Machine Learning with the help of Big Data from Healthcare Communities",
+      "authors": [
+        "Prince Kumar Gupta"
+      ],
+      "year": "2019"
+    }
+  ],
+  "stats": {
+    "experience": "6+",
+    "projects": "15+",
+    "clients": "10+",
+    "technologies": "20+"
+  }
+}

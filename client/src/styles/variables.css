@@ -1,0 +1,229 @@
+:root {
+    /* ============================================
+     COLOR SYSTEM - Electric Midnight Theme
+     ============================================ */
+
+    /* Base colors */
+    --color-bg-primary: #0a0a0f;
+    --color-bg-secondary: #13131a;
+    --color-bg-tertiary: #1a1a24;
+    --color-bg-elevated: #24242f;
+
+    /* Electric accents */
+    --color-accent-cyan: #00f0ff;
+    --color-accent-magenta: #ff00e5;
+    --color-accent-purple: #7b61ff;
+    --color-accent-blue: #0066ff;
+    --color-accent-green: #00ff88;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg,
+            var(--color-accent-cyan) 0%,
+            var(--color-accent-purple) 50%,
+            var(--color-accent-magenta) 100%);
+
+    --gradient-glow: radial-gradient(circle at center,
+            rgba(0, 240, 255, 0.2) 0%,
+            transparent 70%);
+
+    /* Text colors */
+    --color-text-primary: #f5f5f7;
+    --color-text-secondary: #a1a1aa;
+    --color-text-muted: #6b6b7f;
+    --color-text-inverse: #0a0a0f;
+
+    /* State colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #3b82f6;
+
+    /* Borders */
+    --color-border-primary: rgba(255, 255, 255, 0.1);
+    --color-border-secondary: rgba(255, 255, 255, 0.05);
+    --color-border-accent: var(--color-accent-cyan);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+    --shadow-glow-cyan: 0 0 40px rgba(0, 240, 255, 0.3);
+    --shadow-glow-magenta: 0 0 40px rgba(255, 0, 229, 0.3);
+
+    /* ============================================
+     TYPOGRAPHY SYSTEM
+     ============================================ */
+
+    /* Font families */
+    --font-display: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+    --font-body: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Type scale (1.250 - Major Third) */
+    --text-xs: 0.75rem;
+    /* 12px */
+    --text-sm: 0.875rem;
+    /* 14px */
+    --text-base: 1rem;
+    /* 16px */
+    --text-lg: 1.25rem;
+    /* 20px */
+    --text-xl: 1.563rem;
+    /* 25px */
+    --text-2xl: 1.953rem;
+    /* 31px */
+    --text-3xl: 2.441rem;
+    /* 39px */
+    --text-4xl: 3.052rem;
+    /* 49px */
+    --text-5xl: 3.815rem;
+    /* 61px */
+    --text-6xl: 4.768rem;
+    /* 76px */
+
+    /* Font weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+
+    /* Line heights */
+    --leading-none: 1;
+    --leading-tight: 1.2;
+    --leading-snug: 1.4;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.8;
+    --leading-loose: 2;
+
+    /* Letter spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+
+    /* ============================================
+     SPACING SYSTEM (8px base grid)
+     ============================================ */
+
+    --space-0: 0;
+    --space-1: 0.5rem;
+    /* 8px */
+    --space-2: 1rem;
+    /* 16px */
+    --space-3: 1.5rem;
+    /* 24px */
+    --space-4: 2rem;
+    /* 32px */
+    --space-5: 2.5rem;
+    /* 40px */
+    --space-6: 3rem;
+    /* 48px */
+    --space-8: 4rem;
+    /* 64px */
+    --space-10: 5rem;
+    /* 80px */
+    --space-12: 6rem;
+    /* 96px */
+    --space-16: 8rem;
+    /* 128px */
+    --space-20: 10rem;
+    /* 160px */
+    --space-24: 12rem;
+    /* 192px */
+
+    /* ============================================
+     LAYOUT & SIZING
+     ============================================ */
+
+    /* Border radius */
+    --radius-none: 0;
+    --radius-sm: 0.25rem;
+    /* 4px */
+    --radius-md: 0.5rem;
+    /* 8px */
+    --radius-lg: 0.75rem;
+    /* 12px */
+    --radius-xl: 1rem;
+    /* 16px */
+    --radius-2xl: 1.5rem;
+    /* 24px */
+    --radius-full: 9999px;
+
+    /* Container widths */
+    --container-xs: 20rem;
+    /* 320px */
+    --container-sm: 40rem;
+    /* 640px */
+    --container-md: 48rem;
+    /* 768px */
+    --container-lg: 64rem;
+    /* 1024px */
+    --container-xl: 80rem;
+    /* 1280px */
+    --container-2xl: 96rem;
+    /* 1536px */
+
+    /* Z-index scale */
+    --z-base: 0;
+    --z-dropdown: 1000;
+    --z-sticky: 1100;
+    --z-fixed: 1200;
+    --z-modal-backdrop: 1300;
+    --z-modal: 1400;
+    --z-popover: 1500;
+    --z-tooltip: 1600;
+
+    /* ============================================
+     ANIMATION & TRANSITIONS
+     ============================================ */
+
+    /* Durations */
+    --duration-instant: 0ms;
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+    --duration-slower: 800ms;
+    --duration-slowest: 1200ms;
+
+    /* Easing functions */
+    --ease-linear: linear;
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-expo: cubic-bezier(0.87, 0, 0.13, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* ============================================
+     RESPONSIVE BREAKPOINTS
+     ============================================ */
+
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+}
+
+/* ============================================
+   DARK MODE (Default)
+   ============================================ */
+[data-theme='dark'] {
+    color-scheme: dark;
+}
+
+/* ============================================
+   LIGHT MODE (Optional)
+   ============================================ */
+[data-theme='light'] {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f5f5f7;
+    --color-bg-tertiary: #e5e5ea;
+    --color-text-primary: #1a1a1f;
+    --color-text-secondary: #48484a;
+    --color-text-muted: #8e8e93;
+}

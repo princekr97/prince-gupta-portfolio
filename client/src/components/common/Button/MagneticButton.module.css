@@ -1,0 +1,93 @@
+.magneticButton {
+    position: relative;
+    font-family: var(--font-display);
+    font-weight: var(--font-bold);
+    border: none;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    overflow: hidden;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease-out;
+}
+
+.buttonGradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            var(--color-accent-cyan),
+            var(--color-accent-purple),
+            var(--color-accent-magenta),
+            var(--color-accent-cyan));
+    background-size: 200% 100%;
+    z-index: 0;
+}
+
+.buttonText {
+    position: relative;
+    z-index: 2;
+    color: var(--color-text-inverse);
+    font-weight: 700;
+}
+
+.buttonGlow {
+    position: absolute;
+    inset: -2px;
+    background: inherit;
+    border-radius: inherit;
+    filter: blur(20px);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+}
+
+.magneticButton:hover .buttonGlow {
+    opacity: 0.8;
+}
+
+/* Variants */
+.secondary .buttonGradient {
+    background: transparent;
+    border: 1px solid var(--color-border-primary);
+    backdrop-filter: blur(10px);
+}
+
+.secondary .buttonText {
+    color: var(--color-text-primary);
+}
+
+.secondary:hover {
+    border-color: var(--color-accent-cyan);
+}
+
+.outline .buttonGradient {
+    background: transparent;
+    border: 1px solid var(--color-accent-cyan);
+}
+
+.outline .buttonText {
+    color: var(--color-accent-cyan);
+}
+
+/* Sizes */
+.sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
+    min-height: 48px;
+}
+
+.md {
+    padding: calc(var(--space-2) * 1.5) var(--space-6);
+    font-size: var(--text-sm);
+    min-height: 56px;
+    /* Ensure minimum height */
+}
+
+.lg {
+    padding: 0 28px;
+    font-size: var(--text-base);
+    min-height: 52px;
+    border-radius: 14px;
+}
