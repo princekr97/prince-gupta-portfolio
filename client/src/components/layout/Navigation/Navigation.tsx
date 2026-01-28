@@ -5,6 +5,7 @@ import { Magnetic } from '../../common/Magnetic/Magnetic';
 import { useNavigationStore } from '../../../store/navigationStore';
 import { useThemeStore } from '../../../store/themeStore';
 import { useHaptics } from '../../../hooks/useHaptics';
+import { Logo } from '../../common/Logo/Logo';
 import { Button } from '@components/common/Button';
 import usePortfolioData from '../../../hooks/usePortfolioData';
 
@@ -35,7 +36,6 @@ export const Navigation = () => {
 
             const currentSection = sections.find(section => {
                 if (!section) return false;
-                const rect = section.getBoundingClientRect();
                 const sectionTop = section.offsetTop;
                 const sectionBottom = sectionTop + section.offsetHeight;
 
@@ -96,11 +96,11 @@ export const Navigation = () => {
             <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''} ${isMenuOpen ? styles.menuOpen : ''}`}>
                 <div className={`${styles.container} container`}>
                     <motion.div
-                        className={styles.logo}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
+                        onClick={() => scrollToSection('hero')}
                     >
-                        PKG<span className={styles.dot}>.</span>
+                        <Logo />
                     </motion.div>
 
                     {/* Desktop Links */}

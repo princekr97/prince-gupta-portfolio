@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import styles from './Loader.module.css';
+import { Logo } from '../Logo/Logo';
 
 export const Loader = () => {
     const [loading, setLoading] = useState(true);
@@ -31,11 +32,10 @@ export const Loader = () => {
                 >
                     <div className={styles.container}>
                         <motion.div
-                            className={styles.logo}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                         >
-                            PKG<span className={styles.dot}></span>
+                            <Logo />
                         </motion.div>
                         <div className={styles.progressBar}>
                             <motion.div
