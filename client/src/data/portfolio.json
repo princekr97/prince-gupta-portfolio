@@ -140,124 +140,230 @@
   "experience": [
     {
       "id": 1,
-      "company": "Tarento Group",
-      "role": "Senior Software Engineer",
-      "duration": "November 2024 - Present",
-      "period": "1 year 3 months",
-      "location": "Bengaluru, Karnataka, India",
-      "description": "Leading development of Sunbird ED Building Blocks, highly scalable open-source learning products utilized by Diksha as an adopter for Ekstep.",
+      "company": "Tarento Information Technologies",
+      "position": "Senior Software Engineer (SSE)",
+      "client": "Aastrika Foundation",
+      "role": "Full-Stack Developer",
+      "duration": "August 2025 - Present",
+      "period": "6+ months",
+      "location": "Client Office - Aastrika Foundation, Bengaluru",
+      "project": "Aastrika Sphere - Healthcare LMS Platform",
+      "description": "Contributing to a Healthcare Learning Management System delivering training programs for medical professionals and healthcare workers across Bihar, UP, MP, and other states.",
       "achievements": [
-        "Spearheaded development of Sunbird ED Portal using Angular 12+, NodeJS, and Form APIs",
-        "Engineered key features transitioning hardcoded logic to framework-agnostic solutions",
-        "Implemented rigorous unit tests using Jest Framework ensuring robust code quality",
-        "Managed Angular libraries ensuring security standards and compatibility"
+        "Developed admin portal modules for course, user, and content management",
+        "Built admin-side tools to automate manual support tasks",
+        "Handled new API requirements and improved backend services",
+        "Evolved admin use cases based on client feedback and requirements"
       ],
       "technologies": [
         "Angular",
+        "React",
         "Node.js",
-        "TypeScript",
-        "Jest",
-        "REST APIs"
-      ],
-      "links": {
-        "portal": "https://staging.sunbirded.org/",
-        "github": "https://github.com/Sunbird-Ed/SunbirdEd-portal"
-      }
+        "PostgreSQL",
+        "Cassandra",
+        "MongoDB"
+      ]
     },
     {
       "id": 2,
-      "company": "Tarento Group",
-      "role": "Software Engineer",
-      "duration": "September 2022 - November 2024",
-      "period": "2 years 3 months",
-      "location": "Bengaluru, Karnataka, India",
-      "description": "Contributed to Sunbird ED Building Blocks for nation-scale LMS supporting large learner volumes across India.",
+      "company": "Tarento Information Technologies",
+      "position": "Senior Software Engineer (SSE)",
+      "client": "CellMark Global",
+      "role": "Frontend Developer",
+      "duration": "April 2025 - August 2025",
+      "period": "5 months",
+      "location": "Tarento office - Bengaluru",
+      "project": "CROPS Order Management System",
+      "description": "Developed features for an internal order management system used across CellMark's global recycling and pulp/paper logistics operations, streamlining the full lifecycle of recycling orders.",
       "achievements": [
-        "Analyzed business requirements to engineer efficient technical solutions",
-        "Produced user-friendly technical documentation and architecture designs",
-        "Enhanced platform scalability and stability for millions of users"
+        "Built reusable UI components with Material UI and TypeScript",
+        "Implemented complex form logic using Formik and Yup",
+        "Fixed UI bugs and delivered change requests based on business logic",
+        "Translated Figma designs into production-ready React components",
+        "Managed state with Recoil and validated integrations using Postman"
       ],
       "technologies": [
-        "Angular",
-        "Node.js",
-        "MongoDB",
-        "REST APIs"
+        "React.js",
+        "TypeScript",
+        "Material UI",
+        "Recoil",
+        "Formik",
+        "Yup"
       ]
     },
     {
       "id": 3,
-      "company": "OLA (Ani Technologies)",
-      "role": "Senior Software Engineer (SDE-2)",
-      "duration": "July 2024 - April 2025",
-      "period": "10 months",
-      "location": "Bengaluru, Karnataka, India",
-      "description": "Led frontend development for OLA's ONDC Grocery Project, transforming the online grocery shopping experience using the Open Network for Digital Commerce (ONDC) framework.",
+      "company": "Tarento Information Technologies",
+      "position": "Senior Software Engineer (SSE)",
+      "client": "OLA Grocery & Foods",
+      "role": "SDE-2: Frontend Developer",
+      "duration": "August 2024 - April 2025",
+      "period": "9 months",
+      "location": "Client Office - OLA, Bengaluru",
+      "project": "ONDC Grocery & Food Delivery Platform",
+      "description": "Built a consumer-facing web application on the ONDC framework for online grocery and food delivery with real-time and scheduled delivery options, supporting 20-30 min express delivery.",
       "achievements": [
-        "Led frontend development for OLA Grocery ensuring seamless feature rollouts",
-        "Worked closely with product and business teams to implement product requirements",
-        "Translated Figma designs into pixel-perfect, high-performance UI components",
-        "Optimized frontend performance ensuring fast load times and smooth user interactions",
-        "Contributed to aligning OLA Grocery with ONDC protocols",
-        "Developed 20-30 min delivery and same-day scheduled delivery features",
-        "Improved store & subcategory navigation with batch data loading",
-        "Enhanced product discovery with structured category-based browsing",
-        "Implemented unified search suggestions and category-wise item listings",
-        "Reduced page load times and enhanced UI responsiveness across devices",
-        "Delivered key features and production fixes for OLA Foods platform stability"
+        "Converted Figma designs into responsive, pixel-perfect Vue.js components",
+        "Optimized frontend performance reducing initial load times significantly",
+        "Integrated ONDC APIs for product discovery and order management",
+        "Developed 20-30 min express delivery and same-day scheduled delivery features",
+        "Built unified search with category-wise auto-suggestions",
+        "Delivered production fixes for OLA Foods platform stability"
       ],
       "technologies": [
-        "Vue.js",
+        "React.js",
+        "TypeScript",
         "Node.js",
-        "JavaScript",
-        "HTML/CSS",
-        "PWA",
-        "ONDC"
-      ],
-      "keyFeatures": [
-        "Now & Later Delivery (20-30 min + scheduled)",
-        "Homepage Revamp with batch data loading",
-        "Category & Subcategory Pages",
-        "Unified Search with suggestions",
-        "Performance Optimization",
-        "OLA Foods Contributions"
+        "HTML5",
+        "CSS3",
+        "REST APIs"
       ]
     },
     {
       "id": 4,
-      "company": "Muraai Information Technology",
-      "role": "Software Consultant",
-      "duration": "January 2021 - September 2022",
-      "period": "1 year 9 months",
-      "location": "Bangalore, Karnataka, India",
-      "description": "Delivered enterprise-grade solutions improving supplier-customer workflows and system reliability.",
+      "company": "Tarento Information Technologies",
+      "position": "Software Engineer (SE)",
+      "client": "ONEST Platform (Internal) - POC",
+      "role": "Backend Developer",
+      "duration": "July 2024 - August 2024",
+      "period": "2 months",
+      "location": "Tarento office - Bengaluru",
+      "project": "ONEST Technical Service Provider Integration",
+      "description": "Integrated client servers with the ONDC protocol for the Provider application, focusing on backend API development and ensuring ONEST-compliant event responses.",
       "achievements": [
-        "Built scalable web applications for enterprise clients",
-        "Improved system reliability and performance"
+        "Developed ONEST-compliant APIs to emit event responses",
+        "Mapped client responses into ONEST-standard formats",
+        "Validated provider flow APIs using Postman for accurate integration"
       ],
       "technologies": [
-        "React",
         "Node.js",
-        "MongoDB",
-        "Express.js"
+        "REST APIs",
+        "Swagger",
+        "Postman"
       ]
     },
     {
       "id": 5,
-      "company": "Muraai Information Technology",
-      "role": "Associate Software Consultant",
-      "duration": "September 2019 - December 2020",
-      "period": "1 year 4 months",
-      "location": "Bangalore, Karnataka, India",
-      "description": "Developed full-stack applications and contributed to multiple client projects.",
+      "company": "Tarento Information Technologies",
+      "position": "Software Engineer (SE)",
+      "client": "EkStep Foundation",
+      "role": "Full-Stack Developer",
+      "duration": "September 2022 - August 2024",
+      "period": "2 years",
+      "location": "Client Office -EkStep Foundation, Bengaluru",
+      "project": "Sunbird ED Portal - National LMS",
+      "description": "Contributed to an open-source, scalable learning platform supporting education, healthcare, and agriculture domains across India. Replaced hardcoded logic with dynamic, configurable solutions.",
       "achievements": [
-        "Delivered features end-to-end from UI to database",
-        "Collaborated with cross-functional teams"
+        "Replaced hardcoded BMGS logic with dynamic, configurable form system",
+        "Created Postman-based setup for form registration via APIs",
+        "Built reusable Angular components with Material UI and RxJS",
+        "Improved backend APIs for form data management and validations",
+        "Wrote unit tests using Jest and set up GitHub Actions for CI",
+        "Documented the new form system for developer onboarding"
       ],
       "technologies": [
-        "JavaScript",
-        "React",
+        "Angular 14+",
         "Node.js",
-        "SQL"
+        "TypeScript",
+        "Angular Material",
+        "RxJS",
+        "Jest",
+        "Docker"
+      ]
+    },
+    {
+      "id": 6,
+      "company": "Muraai Information Technology",
+      "position": "Software Consultant",
+      "client": "Internal Product",
+      "role": "Frontend Developer",
+      "duration": "July 2022 - September 2022",
+      "period": "3 months",
+      "location": "Bangalore, Karnataka, India",
+      "project": "SIMS - Supplier Invoice Management System",
+      "description": "Developed a web application for digital transformation of Accounts Payable processes, streamlining invoice management and reducing manual effort.",
+      "achievements": [
+        "Developed UIs using Angular 13 framework",
+        "Configured Angular server and managed deployment",
+        "Conducted unit testing and bug fixes"
+      ],
+      "technologies": [
+        "Angular 13",
+        "TypeScript",
+        "Angular Material",
+        "RxJS"
+      ]
+    },
+    {
+      "id": 7,
+      "company": "Muraai Information Technology",
+      "position": "Software Consultant",
+      "client": "Reckitt Benckiser (RB)",
+      "role": "Frontend Developer",
+      "duration": "April 2021 - June 2022",
+      "period": "1 year 3 months",
+      "location": "Bangalore, Karnataka, India",
+      "project": "RB-SIMS - Enterprise Invoice Management",
+      "description": "Developed and integrated SIMS for Reckitt Benckiser, a global consumer goods company, to optimize Accounts Payable workflows and improve supplier-customer relationships.",
+      "achievements": [
+        "Gathered requirements and developed functional UIs",
+        "Implemented UI development with Angular 10",
+        "Deployed code to server with comprehensive unit testing"
+      ],
+      "technologies": [
+        "Angular 10",
+        "TypeScript",
+        "Angular Material",
+        "RxJS",
+        "BPM"
+      ]
+    },
+    {
+      "id": 8,
+      "company": "Muraai Information Technology",
+      "position": "Associate Software Consultant",
+      "client": "Majid Al Futtaim (MAF)",
+      "role": "Frontend Developer",
+      "duration": "January 2021 - March 2021",
+      "period": "3 months",
+      "location": "Bangalore, Karnataka, India",
+      "project": "MAF-SIMS POC",
+      "description": "Developed a proof of concept for SIMS tailored for Majid Al Futtaim, a leading shopping mall and retail pioneer, demonstrating the platform's capabilities.",
+      "achievements": [
+        "Developed POC UIs using Angular 8+",
+        "Configured deployment pipeline",
+        "Conducted testing and debugging"
+      ],
+      "technologies": [
+        "Angular 8+",
+        "TypeScript",
+        "Angular Material",
+        "RxJS"
+      ]
+    },
+    {
+      "id": 9,
+      "company": "Muraai Information Technology",
+      "position": "Associate Software Consultant",
+      "client": "Internal Product",
+      "role": "Full-Stack Developer",
+      "duration": "January 2020 - December 2020",
+      "period": "1 year",
+      "location": "Bangalore, Karnataka, India",
+      "project": "Angular-SIMS Product Development",
+      "description": "Built the core SIMS product for enterprise invoice management and Accounts Payable optimization, establishing the foundation for future client implementations.",
+      "achievements": [
+        "Analyzed requirements and provided technical roadmap",
+        "Developed UIs using Angular 8+ framework",
+        "Designed database functionality using data modeling",
+        "Conducted unit-level testing and debugging"
+      ],
+      "technologies": [
+        "Angular 8+",
+        "TypeScript",
+        "Angular Material",
+        "RxJS",
+        "BPM"
       ]
     }
   ],
@@ -269,7 +375,7 @@
       "description": "Progressive Web App for ONDC-based food & grocery delivery with 20-30 min delivery, scheduled orders, unified search, and optimized performance across devices.",
       "image": "/projects/ola-grocery.jpg",
       "technologies": [
-        "Vue.js",
+        "React.js",
         "Node.js",
         "JavaScript",
         "HTML/CSS",
@@ -363,25 +469,40 @@
   ],
   "certifications": [
     {
-      "title": "Meta Front-End Developer Specialization",
-      "issuer": "Coursera / Meta",
-      "date": "2023",
-      "icon": "🎓",
-      "link": "#"
+      "title": "Generative AI Foundations Certificate",
+      "issuer": "UpGrad",
+      "date": "2026",
+      "icon": "✨",
+      "image": "/certificates/upgrad_ai_cert.jpg",
+      "description": "Successfully completed all modules of the Generative AI Foundations Certificate.",
+      "link": "https://www.linkedin.com/posts/prince-kumar-gupta-59796014b_generative-ai-foundations-certificate-course-activity-7417539623855341569-8oY0"
     },
     {
-      "title": "AWS Certified Cloud Practitioner",
-      "issuer": "Amazon Web Services",
-      "date": "2023",
-      "icon": "☁️",
-      "link": "#"
+      "title": "Angular & NodejS - The MEAN Stack Guide [2024 Edition]",
+      "issuer": "Udemy",
+      "date": "2024",
+      "icon": "🅰️",
+      "image": "/certificates/mern_cert.jpg",
+      "description": "Comprehensive guide to building full-stack applications with Angular and Node.js.",
+      "link": "https://www.linkedin.com/posts/prince-kumar-gupta-59796014b_im-thrilled-to-announce-that-i-have-successfully-activity-7279417968130760704-GQca"
     },
     {
-      "title": "Sunbird Certified Contributor",
-      "issuer": "EkStep Foundation",
-      "date": "2022",
+      "title": "Sunbird Core Member Recognition",
+      "issuer": "Sunbird Community",
+      "date": "2023",
       "icon": "🌟",
-      "link": "#"
+      "image": "/certificates/sunbird_cert.png",
+      "description": "In recognition of your outstanding dedication and contributions as a core member of the sunbird community",
+      "link": "https://www.linkedin.com/posts/prince-kumar-gupta-59796014b_sunbirddpg-innovation-digitalpublicgoods-activity-7217515641535152128-F2dd"
+    },
+    {
+      "title": "ChatGPT Guide - 6+ Hours In-depth Training",
+      "issuer": "AI Mastery",
+      "date": "2024",
+      "icon": "🤖",
+      "image": "/certificates/ai_cert.jpg",
+      "description": "Awarded for the successful completion of the ChatGPT Guide - 6+ Hours In-depth Training",
+      "link": "https://www.linkedin.com/posts/prince-kumar-gupta-59796014b_sunbirddpg-innovation-digitalpublicgoods-activity-7217515641535152128-F2dd"
     }
   ],
   "education": [

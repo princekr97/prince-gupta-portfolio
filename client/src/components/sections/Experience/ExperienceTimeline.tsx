@@ -77,22 +77,25 @@ const TimelineCard = ({
             className={`${styles.timelineItem} ${isEven ? styles.left : styles.right}`}
             initial={{
                 opacity: 0,
-                x: isMobile ? 30 : (isEven ? -100 : 100),
-                rotateY: isMobile ? 25 : 0,
-                perspective: 1000
+                x: isMobile ? 50 : (isEven ? -200 : 200), // Larger move distance for "coming to line" feel
+                rotateY: isEven ? 30 : -30,
+                scale: 0.9,
+                z: -50
             }}
             whileInView={{
                 opacity: 1,
                 x: 0,
-                rotateY: 0
+                rotateY: 0,
+                scale: 1,
+                z: 0
             }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{
-                duration: 0.8,
-                delay: index * 0.1,
+                duration: 1.0,
+                delay: index * 0.15,
                 type: "spring",
-                stiffness: 40,
-                damping: 15
+                stiffness: 50,
+                damping: 12
             }}
         >
             {/* Timeline dot with pulse */}
@@ -124,46 +127,103 @@ const TimelineCard = ({
             >
                 <div className={styles.cardGlow} />
 
-                <div className={styles.cardHeader} style={{ transform: "translateZ(50px)" }}>
-                    <motion.h3 className={styles.role}>
-                        {experience.role}
-                    </motion.h3>
-                    <motion.p className={styles.company}>
-                        {experience.company}
-                    </motion.p>
-                    <motion.span className={styles.period}>
-                        {experience.duration}
-                    </motion.span>
-                </div>
+                <div className={styles.experienceCard}>
+                    {/* Header */}
+                    <motion.div
+                        className={styles.cardHeader}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                    >
+                        <div className={styles.titleSection}>
+                            <h2>{experience.company}</h2>
+                            <div className={styles.role}>{experience.position}</div>
+                        </div>
+                    </motion.div>
 
-                <div style={{ transform: "translateZ(30px)" }}>
-                    <motion.p className={styles.description}>
+                    {/* Info Compact */}
+                    <motion.div
+                        className={styles.infoCompact}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <span className={styles.infoLabel}>Client</span>
+                        <span className={styles.infoValue}>{experience.client}</span>
+
+                        <span className={styles.infoLabel}>Product</span>
+                        <span className={`${styles.infoValue} ${styles.highlight}`}>
+                            {experience.project}
+                        </span>
+                        <span className={styles.infoLabel}>Role</span>
+                        <span className={`${styles.infoValue} ${styles.highlight}`}>
+                            {experience.role}
+                        </span>
+                        <span className={styles.infoLabel}>Work Location</span>
+                        <span className={styles.infoValue}>{experience.location}</span>
+
+                        <span className={styles.infoLabel}>Duration</span>
+                        <span className={styles.infoValue}>{experience.duration}</span>
+                    </motion.div>
+
+                    {/* Description */}
+                    <motion.div
+                        className={styles.description}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                    >
                         {experience.description}
-                    </motion.p>
+                    </motion.div>
 
-                    <div className={styles.achievements}>
-                        <h4 className={styles.achievementsTitle}>Key Deliverables</h4>
-                        <ul>
-                            {experience.achievements.slice(0, 3).map((achievement: string, i: number) => (
-                                <motion.li
-                                    key={i}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.5 + (i * 0.1) }}
-                                >
-                                    {achievement}
-                                </motion.li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className={styles.technologies}>
-                        {experience.technologies.map((tech: string) => (
-                            <span key={tech} className={styles.techBadge}>
-                                {tech}
-                            </span>
+                    {/* Responsibilities */}
+                    <ul className={styles.responsibilities}>
+                        {experience.achievements.map((achievement: string, i: number) => (
+                            <motion.li
+                                key={i}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.4 + (i * 0.1) }}
+                            >
+                                {achievement}
+                            </motion.li>
                         ))}
-                    </div>
+                    </ul>
+
+                    {/* Divider */}
+                    <motion.div
+                        className={styles.sectionDivider}
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5 }}
+                    ></motion.div>
+
+                    {/* Tech Stack */}
+                    <motion.div
+                        className={styles.techStack}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.6 }}
+                    >
+                        {experience.technologies.map((tech: string, i: number) => (
+                            <motion.span
+                                key={tech}
+                                className={styles.techBadge}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.7 + (i * 0.05) }}
+                            >
+                                {tech}
+                            </motion.span>
+                        ))}
+                    </motion.div>
                 </div>
             </motion.div>
         </motion.div>
