@@ -1,134 +1,127 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Skills.module.css';
-import { CyberCard } from '../../common/CyberCard';
 
 const skillCategories = [
     {
         title: 'Frontend',
         icon: '💻',
         skills: [
-            { name: 'React', level: 95 },
-            { name: 'TypeScript', level: 90 },
-            { name: 'Angular', level: 85 },
-            { name: 'CSS/Sass', level: 90 }
+            { name: 'React', level: 95, icon: '⚛️' },
+            { name: 'Angular', level: 90, icon: '🅰️' },
+            { name: 'Vue.js', level: 85, icon: '💚' },
+            { name: 'TypeScript', level: 90, icon: '📘' },
+            { name: 'JavaScript', level: 95, icon: '🟨' },
+            { name: 'HTML5/CSS3', level: 95, icon: '🎨' }
         ]
     },
     {
         title: 'Backend',
         icon: '⚙️',
         skills: [
-            { name: 'Node.js', level: 92 },
-            { name: 'Express', level: 88 },
-            { name: 'Java/Spring', level: 80 },
-            { name: 'Python', level: 75 }
+            { name: 'Node.js', level: 92, icon: '🟢' },
+            { name: 'Express', level: 88, icon: '🚂' },
+            { name: 'Java/Spring', level: 80, icon: '☕' },
+            { name: 'Python', level: 75, icon: '🐍' },
+            { name: 'PostgreSQL', level: 90, icon: '🐘' },
+            { name: 'MongoDB', level: 85, icon: '🍃' }
         ]
     },
     {
         title: 'DevOps & Tools',
         icon: '🛠️',
         skills: [
-            { name: 'Docker', level: 85 },
-            { name: 'AWS', level: 80 },
-            { name: 'Git', level: 95 },
-            { name: 'CI/CD', level: 82 }
-        ]
-    },
-    {
-        title: 'Databases',
-        icon: '📊',
-        skills: [
-            { name: 'PostgreSQL', level: 90 },
-            { name: 'MongoDB', level: 85 },
-            { name: 'Redis', level: 80 },
-            { name: 'Elasticsearch', level: 70 }
+            { name: 'Docker', level: 85, icon: '🐳' },
+            { name: 'AWS', level: 80, icon: '☁️' },
+            { name: 'Git', level: 95, icon: '🔧' },
+            { name: 'CI/CD', level: 82, icon: '🔄' },
+            { name: 'Redis', level: 80, icon: '🔴' },
+            { name: 'Figma', level: 75, icon: '🎨' }
         ]
     }
 ];
 
 export const Skills = () => {
-    const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+    const [activeTab, setActiveTab] = useState('Frontend');
+    const activeCategory = skillCategories.find(c => c.title === activeTab);
 
     return (
-        <section className={`${styles.skills} section`} id="skills">
+        <section className={styles.skills} id="skills">
             <div className="container">
-                <motion.h2
-                    className={styles.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                >
-                    Technical Proficiency
-                </motion.h2>
+                <div className={styles.skillsContent}>
+                    <motion.div
+                        className={styles.header}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className={styles.titleGlitch}>Technical Expertise</h2>
+                        <p className={styles.subtitle}>Building robust solutions with modern technologies</p>
+                    </motion.div>
 
-                <div className={styles.grid}>
-                    {skillCategories.map((category, idx) => (
-                        <motion.div
-                            key={category.title}
-                            initial={{ opacity: 0, y: 40, scale: 0.9 }}
-                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{
-                                duration: 0.5,
-                                delay: idx * 0.15,
-                                ease: [0.4, 0, 0.2, 1]
-                            }}
-                            style={{ width: '100%', height: '100%' }}
-                        >
-                            <CyberCard>
-                                <div
-                                    className={`${styles.category} ${expandedCategory === category.title ? styles.expanded : ''}`}
-                                    onClick={() => setExpandedCategory(expandedCategory === category.title ? null : category.title)}
+                    <div className={styles.tabsHeader}>
+                        <div className={styles.tabsContainer}>
+                            {skillCategories.map((cat) => (
+                                <button
+                                    key={cat.title}
+                                    className={`${styles.tabBtn} ${activeTab === cat.title ? styles.activeTab : ''}`}
+                                    onClick={() => setActiveTab(cat.title)}
                                 >
-                                    <div className={styles.categoryHeader}>
-                                        <div className={styles.iconTitle}>
-                                            <span className={styles.icon}>{category.icon}</span>
-                                            <h3 className={styles.categoryTitle}>{category.title}</h3>
-                                        </div>
-                                        <motion.span
-                                            className={styles.arrow}
-                                            animate={{ rotate: expandedCategory === category.title ? 180 : 0 }}
-                                        >
-                                            ↓
-                                        </motion.span>
+                                    <span className={styles.tabIcon}>{cat.icon}</span>
+                                    <span>{cat.title}</span>
+                                    {activeTab === cat.title && (
+                                        <motion.div
+                                            className={styles.activeTabIndicator}
+                                            layoutId="activeTab"
+                                        />
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.3 }}
+                            className={styles.skillsGrid}
+                        >
+                            {activeCategory?.skills.map((skill, index) => (
+                                <motion.div
+                                    key={skill.name}
+                                    className={styles.skillCard}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.05 }}
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <div className={styles.cardHeader}>
+                                        <span className={styles.skillIcon}>{skill.icon}</span>
+                                        <h3 className={styles.skillName}>{skill.name}</h3>
                                     </div>
 
-                                    <AnimatePresence>
-                                        {expandedCategory === category.title && (
+                                    <div className={styles.progressContainer}>
+                                        <div className={styles.levelHeader}>
+                                            <span className={styles.levelText}>Proficiency</span>
+                                            <span className={styles.levelPercent}>{skill.level}%</span>
+                                        </div>
+                                        <div className={styles.track}>
                                             <motion.div
-                                                className={styles.skillList}
-                                                initial={{ height: 0, opacity: 0 }}
-                                                animate={{ height: 'auto', opacity: 1 }}
-                                                exit={{ height: 0, opacity: 0 }}
-                                                transition={{ duration: 0.3 }}
-                                            >
-                                                {category.skills.map((skill, sIdx) => (
-                                                    <div key={skill.name} className={styles.skillItem}>
-                                                        <div className={styles.skillHeader}>
-                                                            <span className={styles.skillName}>{skill.name}</span>
-                                                            <span className={styles.skillLevel}>{skill.level}%</span>
-                                                        </div>
-                                                        <div className={styles.progressBg}>
-                                                            <motion.div
-                                                                className={styles.progressFill}
-                                                                initial={{ width: 0 }}
-                                                                animate={{ width: `${skill.level}%` }}
-                                                                transition={{ duration: 1, delay: 0.2 + (sIdx * 0.1) }}
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-
-                                    {!expandedCategory && (
-                                        <p className={styles.clickHint}>Click to view skills</p>
-                                    )}
-                                </div>
-                            </CyberCard>
+                                                className={styles.fill}
+                                                initial={{ width: 0 }}
+                                                whileInView={{ width: `${skill.level}%` }}
+                                                transition={{ duration: 1, delay: 0.2 }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className={styles.cardGlow} />
+                                </motion.div>
+                            ))}
                         </motion.div>
-                    ))}
+                    </AnimatePresence>
                 </div>
             </div>
         </section>

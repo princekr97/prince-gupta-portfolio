@@ -8,17 +8,7 @@
 }
 
 /* Ambient Ambient Glows */
-.timeline::after {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: -10%;
-    width: 40%;
-    height: 60%;
-    background: radial-gradient(circle, rgba(0, 240, 255, 0.03) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-}
+/* Removed ambient glow to fix boxy artifact */
 
 .header {
     text-align: center;
@@ -532,8 +522,8 @@
     .experienceCard {
         padding: 12px 15px;
         /* Further reduced padding for PWA */
-        background: transparent;
-        /* Remove background for minimal frame */
+        background: #050508;
+        /* Solid dark background to fix 'transparent' look */
         border-top: 1px solid rgba(0, 240, 255, 0.1);
         border-bottom: 1px solid rgba(0, 240, 255, 0.1);
         border-left: 1px solid rgba(0, 240, 255, 0.05);
