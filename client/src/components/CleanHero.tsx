@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import styles from './CleanHero.module.css';
 import usePortfolioData from '../hooks/usePortfolioData';
 import profileImg from '../assets/profile.jpg'; // Import profile image
+import { MandalaOverlay } from './common/Decorations/MandalaOverlay';
 
 export const CleanHero = () => {
   const data = usePortfolioData();
@@ -44,6 +45,9 @@ export const CleanHero = () => {
       <div className={styles.orb2} />
       <div className={styles.heroGridInteractive} />
       <div className={styles.spotlight} />
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none', opacity: 0.15 }}>
+        <MandalaOverlay />
+      </div>
 
       {/* 3D shapes */}
       <motion.div
