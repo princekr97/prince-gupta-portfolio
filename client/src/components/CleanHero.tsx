@@ -131,7 +131,7 @@ export const CleanHero = () => {
                 transition={{ delay: 1.4, duration: 0.6 }}
               >
                 <motion.img
-                  src="/src/assets/profile.jpg"
+                  src={profileImg}
                   alt="Prince Kumar Gupta"
                   className={styles.profileImage}
                   initial={{ scale: 1.2 }}

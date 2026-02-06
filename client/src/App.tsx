@@ -3,7 +3,7 @@ import { Loader } from './components/common/Loader/Loader';
 import { SEO } from './components/layout/SEO/SEO';
 import { CleanHero } from './components/CleanHero';
 import { CleanSkills } from './components/CleanSkills';
-import { About } from './components/sections/About/About';
+
 import { Certifications } from './components/sections/Certifications/Certifications';
 import { ProjectsShowcase } from './components/sections/Projects/ProjectsShowcase';
 import { ExperienceTimeline } from './components/sections/Experience/ExperienceTimeline';
@@ -79,12 +79,7 @@ function App() {
         <CleanHero />
         <ExperienceTimeline />
         <CleanSkills />
-
-        {/* About & Certifications Layout */}
-        <section className="about-certs-container">
-          <About />
-          <Certifications />
-        </section>
+        <Certifications />
 
         <ProjectsShowcase />
         <CleanContact />
