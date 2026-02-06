@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import styles from './ProjectsShowcase.module.css';
-import { ProjectModal } from './Modal/ProjectModal';
+
 import usePortfolioData from '../../../hooks/usePortfolioData';
 
 interface Project {
@@ -13,6 +13,7 @@ interface Project {
     technologies: string[];
     link?: string;
     github?: string;
+    prLink?: string;
     featured?: boolean;
     features?: string[];
     impact?: string;
@@ -23,66 +24,32 @@ interface Project {
     };
 }
 
-const categories = ['All', 'E-Commerce PWA', 'Education Technology', 'Healthcare Training', 'Enterprise System'] as const;
-type Category = typeof categories[number];
-
 export const ProjectsShowcase = () => {
     const data = usePortfolioData();
-    const [activeFilter, setActiveFilter] = useState<Category>('All');
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-    const filteredProjects = activeFilter === 'All'
-        ? data.projects
-        : data.projects.filter(p => p.category === activeFilter);
 
     return (
         <section className={styles.showcase} id="projects">
-            <div className="container">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <h2 className={styles.title}>Featured Projects</h2>
-                    <p className={styles.subtitle}>Forging digital masterpieces with precision</p>
-                </motion.div>
+            <div className="container" style={{ padding: '0 24px' }}>
+                <header className={styles.header}>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className={styles.titleGlitch}>Projects & Contributions</h2>
+                        <p className={styles.sectionSubtitle}>Tactical deployments & mission-critical codebases</p>
+                    </motion.div>
+                </header>
 
-                <div className={styles.filters}>
-                    {categories.map((category, idx) => (
-                        <motion.button
-                            key={category}
-                            className={`${styles.filterBtn} ${activeFilter === category ? styles.active : ''}`}
-                            onClick={() => setActiveFilter(category)}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 * idx }}
-                        >
-                            {category}
-                        </motion.button>
+                <div className={styles.grid}>
+                    {data.projects.map((project, index) => (
+                        <ProjectCard
+                            key={project.id}
+                            project={project as any}
+                            index={index}
+                        />
                     ))}
                 </div>
-
-                <motion.div layout className={styles.grid}>
-                    <AnimatePresence mode='popLayout'>
-                        {filteredProjects.map((project, index) => (
-                            <ProjectCard
-                                key={project.id}
-                                project={project}
-                                index={index}
-                                onClick={() => setSelectedProject(project)}
-                            />
-                        ))}
-                    </AnimatePresence>
-                </motion.div>
-
-                <ProjectModal
-                    project={selectedProject}
-                    onClose={() => setSelectedProject(null)}
-                />
             </div>
         </section>
     );
@@ -91,69 +58,176 @@ export const ProjectsShowcase = () => {
 const ProjectCard = ({
     project,
     index,
-    onClick
 }: {
     project: Project;
     index: number;
-    onClick: () => void;
 }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
 
-    const rotateX = useSpring(useTransform(mouseY, [-200, 200], [8, -8]), { stiffness: 100, damping: 30 });
-    const rotateY = useSpring(useTransform(mouseX, [-200, 200], [-8, 8]), { stiffness: 100, damping: 30 });
+    const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+    const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!cardRef.current) return;
+        if (!cardRef.current || isExpanded) return;
         const rect = cardRef.current.getBoundingClientRect();
-        mouseX.set(e.clientX - rect.left - rect.width / 2);
-        mouseY.set(e.clientY - rect.top - rect.height / 2);
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+        x.set(xPct);
+        y.set(yPct);
     };
 
     const handleMouseLeave = () => {
-        mouseX.set(0);
-        mouseY.set(0);
+        x.set(0);
+        y.set(0);
+    };
+
+    const isContribution = !!project.prLink;
+    const isSunbird = project.title.toLowerCase().includes('sunbird');
+
+    const toggleExpand = (e: React.MouseEvent) => {
+        if (isContribution && project.prLink) {
+            window.open(project.prLink, '_blank');
+            return;
+        }
+        e.stopPropagation();
+        setIsExpanded(!isExpanded);
+        // Reset 3D on expand
+        x.set(0);
+        y.set(0);
     };
 
     return (
         <motion.div
             layout
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.3 } }}
+            className={`${styles.cardWrapper} ${isExpanded ? styles.expanded : ''}`}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: (index % 3) * 0.1 }}
-            className={styles.cardWrapper}
-            onClick={onClick}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d"
-            }}
         >
-            <div className={styles.glowEffect} />
-            <div ref={cardRef} className={styles.card}>
-                <div className={styles.imageWrapper}>
+            <motion.div
+                ref={cardRef}
+                layout
+                className={styles.projectCard}
+                style={{
+                    rotateX: isExpanded ? 0 : rotateX,
+                    rotateY: isExpanded ? 0 : rotateY,
+                    transformStyle: "preserve-3d",
+                }}
+            >
+                <div className={styles.imageBox} onClick={toggleExpand}>
                     <img src={project.image} alt={project.title} className={styles.image} />
-                    <div className={styles.overlay}>
-                        <div className={styles.tags}>
-                            {project.technologies.slice(0, 3).map((tag) => (
-                                <span key={tag} className={styles.tag}>{tag}</span>
-                            ))}
-                        </div>
-                        <span className={styles.viewLink}>View Data ↗</span>
+                    <div className={styles.imageOverlay} />
+                    <div className={styles.holoScan} />
+
+                    {isSunbird && (
+                        <div className={styles.sunbirdLogo}>S</div>
+                    )}
+
+                    <div className={styles.cardBrand}>
+                        {isContribution ? 'OSS Contribution' : project.category}
+                    </div>
+
+                    <div className={styles.tacticalCorner}>
+                        <span className={styles.idLabel}>ID: 00{project.id}</span>
                     </div>
                 </div>
 
-                <div className={styles.info} style={{ transform: "translateZ(50px)" }}>
-                    <span className={styles.projectCategory}>{project.category}</span>
-                    <h3 className={styles.projectTitle}>{project.title}</h3>
-                    <p className={styles.projectDescription}>{project.description}</p>
+                <div className={styles.cardContent} style={{ transform: isExpanded ? "none" : "translateZ(40px)" }}>
+                    <div className={styles.cardHeader}>
+                        <div className={styles.mainMeta}>
+                            <span className={styles.impactLabel}>
+                                {isContribution ? 'Direct Code Impact' : (project.impact || 'Core Delivery')}
+                            </span>
+                            <h3 className={styles.projectTitle}>{project.title}</h3>
+                        </div>
+                        <button
+                            className={`${styles.tacticalBtn} ${isExpanded ? styles.active : ''}`}
+                            onClick={toggleExpand}
+                        >
+                            {isExpanded ? 'Collapse' : 'Tactical Intel'}
+                        </button>
+                    </div>
+
+                    <p className={styles.description}>{project.description}</p>
+
+                    <div className={styles.cardFooter}>
+                        <div className={styles.techStack}>
+                            {project.technologies.slice(0, 3).map(tech => (
+                                <span key={tech} className={styles.techBadge}>{tech}</span>
+                            ))}
+                        </div>
+                        <div className={styles.actionIcon} onClick={toggleExpand}>
+                            {isContribution ? (
+                                <span className={styles.prLink}>PR ↗</span>
+                            ) : (
+                                <motion.div
+                                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                                    className={styles.chevronBox}
+                                >
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                        <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </motion.div>
+                            )}
+                        </div>
+                    </div>
+
+                    <AnimatePresence>
+                        {isExpanded && project.details && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                                className={styles.intelGrid}
+                            >
+                                <div className={styles.intelSection}>
+                                    <h4 className={styles.intelTitle}>The Challenge</h4>
+                                    <p className={styles.intelText}>{project.details.challenge}</p>
+                                </div>
+                                <div className={styles.intelSection}>
+                                    <h4 className={styles.intelTitle}>The Solution</h4>
+                                    <p className={styles.intelText}>{project.details.solution}</p>
+                                </div>
+                                <div className={styles.intelSection}>
+                                    <h4 className={styles.intelTitle}>Outcomes</h4>
+                                    <ul className={styles.intelList}>
+                                        {project.details.outcomes.map((o, i) => (
+                                            <li key={i}>{o}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className={styles.intelActions}>
+                                    {project.link && (
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.launchBtn}>
+                                            Launch Platform 🚀
+                                        </a>
+                                    )}
+                                    {project.github && !project.prLink && (
+                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.sourceBtn}>
+                                            Source Access ↗
+                                        </a>
+                                    )}
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
-            </div>
+            </motion.div>
         </motion.div>
     );
 };

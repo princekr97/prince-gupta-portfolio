@@ -26,6 +26,33 @@
             rgba(0, 240, 255, 0.2) 0%,
             transparent 70%);
 
+    /* Section + surface system */
+    --gradient-title: linear-gradient(90deg,
+            var(--color-accent-cyan) 0%,
+            var(--color-accent-purple) 50%,
+            var(--color-accent-magenta) 100%);
+
+    --section-bg: linear-gradient(180deg, #0a0a0f 0%, #0d0d14 55%, #0a0a0f 100%);
+    --section-bg-alt: linear-gradient(180deg, #0b0b12 0%, #0a0a10 70%, #07070c 100%);
+    --section-overlay:
+        radial-gradient(circle at 18% 35%, rgba(0, 240, 255, 0.12), transparent 55%),
+        radial-gradient(circle at 82% 22%, rgba(255, 0, 229, 0.08), transparent 55%),
+        radial-gradient(circle at 55% 85%, rgba(123, 97, 255, 0.08), transparent 60%);
+    --section-grid:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.025) 0px,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px,
+            transparent 6px
+        );
+
+    --surface-glass: rgba(15, 16, 26, 0.62);
+    --surface-glass-strong: rgba(12, 14, 22, 0.85);
+    --surface-border: rgba(255, 255, 255, 0.08);
+    --surface-border-strong: rgba(0, 240, 255, 0.22);
+    --surface-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+
     /* Text colors */
     --color-text-primary: #f5f5f7;
     --color-text-secondary: #a1a1aa;

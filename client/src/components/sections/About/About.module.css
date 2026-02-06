@@ -1,8 +1,9 @@
 .about {
     position: relative;
-    padding: var(--space-10) 0;
-    overflow: hidden;
-    background: linear-gradient(180deg, var(--color-bg-primary) 0%, #0d0d14 100%);
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+    isolation: isolate;
 }
 
 .about::before {
@@ -16,10 +17,15 @@
     z-index: 1;
 }
 
+.about::after {
+    display: none;
+}
+
 .profileSection {
     display: flex;
-    gap: var(--space-10);
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
     position: relative;
     z-index: 2;
 }
@@ -27,24 +33,26 @@
 /* 3D Card Container */
 .card3dContainer {
     position: relative;
-    width: 400px;
-    height: 500px;
+    width: 100%;
+    max-width: 400px;
+    height: 480px;
     perspective: 2000px;
+    margin: 0 auto;
 }
 
 .profileCard {
     position: relative;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(10, 10, 15, 0.9) 100%);
+    background: var(--surface-glass-strong);
     border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--surface-border);
     overflow: visible;
     transform-style: preserve-3d;
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.8),
-        0 0 40px rgba(0, 240, 255, 0.1),
-        inset 0 0 60px rgba(0, 240, 255, 0.05);
+        0 30px 80px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(0, 240, 255, 0.08),
+        inset 0 0 50px rgba(0, 240, 255, 0.05);
     transition: all 0.5s var(--ease-smooth);
 }
 
@@ -54,7 +62,7 @@
     inset: -2px;
     border-radius: 30px;
     padding: 2px;
-    background: linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-purple), var(--color-accent-magenta));
+    background: var(--gradient-title);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -76,7 +84,7 @@
     box-shadow:
         0 0 40px rgba(0, 240, 255, 0.4),
         0 0 80px rgba(123, 97, 255, 0.2);
-    background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-cyan));
+    background: var(--gradient-title);
 }
 
 .imageContainer img {
@@ -117,7 +125,7 @@
     left: 0;
     right: 0;
     padding: 40px 30px 30px;
-    background: linear-gradient(to top, rgba(26, 26, 46, 1), transparent);
+    background: linear-gradient(to top, rgba(10, 12, 20, 0.95), transparent);
     border-radius: 0 0 28px 28px;
     transform: translateZ(50px);
 }
@@ -131,8 +139,8 @@
 .statBox {
     flex: 1;
     padding: 20px 10px;
-    background: rgba(0, 240, 255, 0.05);
-    border: 1px solid rgba(0, 240, 255, 0.2);
+    background: var(--surface-glass);
+    border: 1px solid var(--surface-border);
     border-radius: 15px;
     text-align: center;
     backdrop-filter: blur(10px);
@@ -170,26 +178,17 @@
     font-size: 3.2rem;
     font-weight: 900;
     text-transform: uppercase;
-    background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-magenta), var(--color-accent-purple));
+    background: var(--gradient-title);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientFlow 3s linear infinite;
+    animation: sectionTitleFlow 6s linear infinite;
     margin-bottom: 0.5rem;
     letter-spacing: -2px;
     position: relative;
 }
 
-@keyframes gradientFlow {
-    0% {
-        background-position: 0% center;
-    }
-
-    100% {
-        background-position: 200% center;
-    }
-}
 
 .sectionSubtitle {
     font-size: 1.125rem;
@@ -219,7 +218,7 @@
     line-height: 1.8;
     margin-bottom: 3rem;
     padding: 25px;
-    background: rgba(0, 240, 255, 0.03);
+    background: var(--surface-glass);
     border-left: 4px solid var(--color-accent-cyan);
     border-radius: 0 10px 10px 0;
     color: var(--color-text-primary);
@@ -238,7 +237,7 @@
     display: inline-flex;
     align-items: center;
     padding: 0.7rem 1.8rem;
-    background: var(--gradient-primary);
+    background: var(--gradient-title);
     color: var(--color-text-primary);
     text-decoration: none;
     text-transform: uppercase;
@@ -259,8 +258,8 @@
 .socialIcon {
     width: 50px;
     height: 50px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--color-border-primary);
+    background: var(--surface-glass);
+    border: 1px solid var(--surface-border);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -392,7 +391,7 @@
     .profileSection {
         flex-direction: column;
         align-items: center;
-        gap: 6rem;
+        gap: var(--space-8);
     }
 
     .card3dContainer {
@@ -406,7 +405,17 @@
 }
 
 @media (max-width: 768px) {
+    .profileSection {
+        gap: var(--space-6);
+    }
+
+    .about::after {
+        opacity: 0.25;
+        animation: none;
+    }
+
     .titleGlitch {
+        animation: none;
         font-size: 2.25rem;
     }
 
@@ -425,7 +434,16 @@
 
     .actionsRow {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 1.5rem;
+    }
+
+    .downloadBtn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .socialIcons {
+        justify-content: center;
     }
 }

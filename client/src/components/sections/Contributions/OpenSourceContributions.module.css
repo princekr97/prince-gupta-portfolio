@@ -1,0 +1,230 @@
+.contributions {
+    position: relative;
+    padding: var(--space-12) 0;
+    background: var(--section-bg);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.header {
+    margin-bottom: var(--space-8);
+    text-align: center;
+}
+
+.category {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--color-accent-magenta);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    color: #fff;
+}
+
+.dashboard {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.mainCard {
+    position: relative;
+    padding: 3rem;
+    background: var(--surface-glass-strong);
+    border-radius: 40px;
+    border: 1px solid var(--surface-border);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+}
+
+.glassEffect {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    gap: 2rem;
+}
+
+.projectInfo {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.sunbirdLogo {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-title);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #000;
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+}
+
+.projectName {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+}
+
+.projectRole {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--color-accent-cyan);
+    margin-top: 4px;
+}
+
+.impactBadge {
+    padding: 8px 16px;
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--color-accent-cyan);
+    border-radius: 100px;
+    color: var(--color-accent-cyan);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.gridContent {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 4rem;
+}
+
+.summary {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+.keyMoves {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.keyMoves li {
+    display: flex;
+    gap: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #aaa;
+}
+
+.keyMoves strong {
+    color: #fff;
+}
+
+.bolt {
+    color: var(--color-accent-magenta);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.visualStats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.statBox {
+    position: relative;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.statLine {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 3px;
+    background: var(--color-accent-cyan);
+    border-radius: 0 4px 4px 0;
+}
+
+.statVal {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}
+
+.statLab {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    margin-top: 8px;
+    letter-spacing: 1px;
+}
+
+.prLink {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+
+.prLink:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 900px) {
+    .gridContent {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .mainCard {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .cardHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .projectName {
+        font-size: 1.5rem;
+    }
+}

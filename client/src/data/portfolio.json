@@ -408,7 +408,7 @@
       "id": 2,
       "title": "Sunbird ED - National LMS Platform",
       "category": "Education Technology",
-      "description": "Nation-scale Learning Management System supporting millions of learners across India through Diksha platform.",
+      "description": "Architected DevOps transformation (Jenkins to GitHub Actions) and managed mission-critical production releases (v6.0 to v8.0) for India's national education infrastructure.",
       "image": "/projects/sunbird-ed.jpg",
       "technologies": [
         "Angular",
@@ -424,21 +424,22 @@
       ],
       "details": {
         "challenge": "Scaling a national learning platform to support varied internet speeds and diverse devices across India while transitioning from hardcoded logic to a flexible, adopter-friendly framework.",
-        "solution": "Engineered framework-agnostic 'Building Blocks' using Angular 12 and Node.js. Developed the Sunbird ED Portal with a focus on modularity, allowing different adopters (like Diksha) to seamlessly integrate and customize the LMS.",
+        "solution": "Architected a framework-agnostic 'Building Blocks' system. Led a major refactor (PR #9063 - 195+ commits) that replaced legacy hardcoded BMGS (Board, Medium, Grade, Subject) logic with a generic, dynamic configuration system.",
         "outcomes": [
           "Platform currently serves millions of students nationwide.",
-          "Achieved high code reliability through 80%+ test coverage with Jest.",
-          "Improved platform stability during peak usage hours (exam seasons)."
+          "Merged PR #9063: Massively improved codebase flexibility with 195+ commits.",
+          "Achieved high code reliability through 80%+ test coverage with Jest."
         ]
       },
-      "impact": "Supporting education for millions of students across India",
+      "impact": "Led Generic BMGS Refactor (PR #9063) serving millions",
       "link": "https://staging.sunbirded.org/",
+      "prLink": "https://github.com/Sunbird-Ed/SunbirdEd-portal/pull/9063",
       "github": "https://github.com/Sunbird-Ed/SunbirdEd-portal",
       "featured": true
     },
     {
       "id": 3,
-      "title": "Healthcare LMS - Aastrika Foundation",
+      "title": "Sphere - Healthcare LMS",
       "category": "Healthcare Training",
       "description": "Healthcare Learning Management System delivering training programs across Bihar, UP, MP, and other states.",
       "image": "/projects/healthcare-lms.jpg",
@@ -464,7 +465,75 @@
         ]
       },
       "impact": "Training healthcare workers across multiple Indian states",
+      "link": "https://sphere.aastrika.org/public/home",
       "featured": true
+    },
+    {
+      "id": 4,
+      "title": "DevDesk - High Perf JSON Engine",
+      "category": "Productivity PWA",
+      "description": "Extreme-performance workspace for processing massive JSON payloads (100MB+) locally. Features a custom virtualized tree and yielding parser to maintain 60FPS.",
+      "image": "/projects/devdesk.jpg",
+      "technologies": [
+        "React",
+        "Web Workers",
+        "TypeScript",
+        "Monaco Editor",
+        "Zustand"
+      ],
+      "features": [
+        "Virtualized tree handling 100MB+ files",
+        "Zero-Copy multithreaded data transfer",
+        "Async yielding parser (12ms cycles)",
+        "Monaco-powered Diff Checker",
+        "Privacy-first offline processing"
+      ],
+      "details": {
+        "challenge": "Handling massive JSON payloads in a single-threaded browser environment without freezing the UI or exceeding memory caps.",
+        "solution": "Architected a 'Compute-Mesh' using Web Workers for off-main-thread parsing. Implemented a custom yielding engine that prevents main-thread blocking and a virtualized DOM to keep rendering under 15k nodes.",
+        "outcomes": [
+          "Stable 60FPS scrolling even with 100MB JSON files.",
+          "50% reduction in RAM usage via Transferable Objects.",
+          "Privacy-first architecture ensuring zero data leaves the client."
+        ]
+      },
+      "impact": "Stable 60FPS on 100MB files via Web Workers",
+      "link": "https://devdesktool.vercel.app/",
+      "github": "https://github.com/princekr97/DevDesk",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "eKhatabahi - Ledger Management",
+      "category": "Enterprise System",
+      "description": "Comprehensive full-stack digital ledger management system for small businesses, featuring real-time transaction tracking and analytics.",
+      "image": "/projects/ekhatabahi.jpg",
+      "technologies": [
+        "MERN Stack",
+        "JWT",
+        "Redux",
+        "Tailwind CSS"
+      ],
+      "features": [
+        "Real-time Kredit/Debit tracking",
+        "Customer-wise ledger history",
+        "PDF Report generation",
+        "Secure JWT-based authentication",
+        "Mobile-first responsive design"
+      ],
+      "details": {
+        "challenge": "Replacing traditional physical ledgers with a secure, digital alternative that is easy to use for non-technical shop owners while maintaining data integrity.",
+        "solution": "Developed a robust MERN application with a focused UI on transaction speed. Integrated automated balance calculations and secure data encryption for individual ledgers.",
+        "outcomes": [
+          "Digitized ledger management for multiple local businesses.",
+          "Reduced reconciliation errors by 90% via automated calculations.",
+          "Secure, cloud-synced data available across all devices."
+        ]
+      },
+      "impact": "Digital transformation for local business ledgers",
+      "link": "https://khatabahi-pg.vercel.app/",
+      "github": "https://github.com/princekr97/ekhatabahi",
+      "featured": false
     }
   ],
   "certifications": [

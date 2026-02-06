@@ -231,16 +231,10 @@ const WavyNavLine = () => {
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{
                     pathLength: 1,
-                    opacity: 1,
-                    d: [
-                        "M0,10 Q25,5 50,10 T100,10",
-                        "M0,10 Q25,15 50,10 T100,10",
-                        "M0,10 Q25,5 50,10 T100,10"
-                    ]
+                    opacity: 1
                 }}
                 transition={{
-                    pathLength: { duration: 0.5, ease: 'easeOut' },
-                    d: { duration: 2, repeat: Infinity, ease: 'easeInOut' }
+                    pathLength: { duration: 0.5, ease: 'easeOut' }
                 }}
             />
             <defs>

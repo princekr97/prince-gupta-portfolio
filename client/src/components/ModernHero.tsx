@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Text3D, MeshTransmissionMaterial, Environment, PerspectiveCamera } from '@react-three/drei';
+import { Float, MeshTransmissionMaterial, Environment, PerspectiveCamera } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import * as THREE from 'three';

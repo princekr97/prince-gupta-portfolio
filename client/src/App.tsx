@@ -2,14 +2,15 @@ import { Navigation } from './components/layout/Navigation/Navigation';
 import { Loader } from './components/common/Loader/Loader';
 import { SEO } from './components/layout/SEO/SEO';
 import { CleanHero } from './components/CleanHero';
-import { About } from './components/sections/About/About';
 import { CleanSkills } from './components/CleanSkills';
+import { About } from './components/sections/About/About';
 import { Certifications } from './components/sections/Certifications/Certifications';
 import { ProjectsShowcase } from './components/sections/Projects/ProjectsShowcase';
 import { ExperienceTimeline } from './components/sections/Experience/ExperienceTimeline';
 import { CleanContact } from './components/CleanContact';
 import { MagneticCursor } from './components/MagneticCursor';
 import { PWAInstallPrompt } from './components/common/PWAInstallPrompt';
+
 import { Footer } from './components/layout/Footer/Footer';
 import Lenis from 'lenis';
 import { useEffect } from 'react';
@@ -75,16 +76,19 @@ function App() {
       <Navigation />
       <PWAInstallPrompt />
       <main style={{ position: 'relative', minHeight: '100vh' }}>
-        <section id="hero"><CleanHero /></section>
-        <section id="about"><About /></section>
-        <section id="experience"><ExperienceTimeline /></section>
-        <section id="skills"><CleanSkills /></section>
-        <section id="certifications"><Certifications /></section>
-        <section id="projects"><ProjectsShowcase /></section>
-        <section id="contact"><CleanContact /></section>
+        <CleanHero />
+        <ExperienceTimeline />
+        <CleanSkills />
+
+        {/* About & Certifications Layout */}
+        <section className="about-certs-container">
+          <About />
+          <Certifications />
+        </section>
+
+        <ProjectsShowcase />
+        <CleanContact />
       </main>
-
-
       <Footer />
     </div>
   );

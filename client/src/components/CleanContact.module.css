@@ -1,150 +1,361 @@
 .contact {
-  padding: var(--space-10) 0;
   position: relative;
-  background: var(--color-bg-primary);
+  padding: var(--space-12) 0;
   overflow: hidden;
+  isolation: isolate;
+  background: var(--section-bg);
 }
 
-.content {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 0 1.5rem;
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.18), transparent);
+  z-index: 1;
+}
+
+.contact::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--section-grid);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+  animation: ambientDrift 22s ease-in-out infinite;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: var(--section-overlay);
+  opacity: 0.55;
+}
+
+.canvasWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.75;
+  filter: saturate(1.1);
+  -webkit-mask-image: radial-gradient(circle at 70% 40%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 68%);
+  mask-image: radial-gradient(circle at 70% 40%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 68%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.layout {
   position: relative;
   z-index: 2;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.header {
+  max-width: 520px;
 }
 
 .title {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
   font-weight: 900;
   text-transform: uppercase;
-  background: linear-gradient(90deg, var(--color-accent-cyan), var(--color-accent-purple), var(--color-accent-magenta));
+  letter-spacing: -1px;
+  margin: 0 0 var(--space-2);
+  background: var(--gradient-title);
+  background-size: 200% auto;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1.5rem;
-  letter-spacing: -2px;
+  animation: sectionTitleFlow 6s linear infinite;
 }
 
 .subtitle {
+  margin: 0 0 var(--space-6);
   font-family: 'Space Mono', monospace;
   color: var(--color-text-secondary);
-  font-size: 1.125rem;
-  letter-spacing: 2px;
+  font-size: 0.95rem;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
-  margin-bottom: 5rem;
+  line-height: 1.6;
 }
 
-.contactGrid {
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ctaButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.1rem;
+  padding: 1px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ctaButton:focus-visible {
+  outline: 2px solid rgba(244, 114, 182, 0.9);
+  outline-offset: 4px;
+}
+
+.ctaBorder {
+  position: absolute;
+  inset: -220%;
+  background: conic-gradient(from 90deg at 50% 50%, #e7029a 0%, #f472b6 50%, #bd5fff 100%);
+  animation: ctaBorderSpin 2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes ctaBorderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 0 1.35rem;
+  border-radius: 11px;
+  background: var(--surface-glass-strong);
+  color: #ffffff;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.ctaButtonSecondary .ctaContent {
+  background: rgba(19, 19, 26, 0.55);
+  color: var(--color-text-primary);
+}
+
+.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  align-items: stretch;
+  perspective: 1200px;
 }
 
 .contactCard {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 3rem 1.5rem;
+  position: relative;
+  padding: 1.2rem 1.1rem;
+  border-radius: 18px;
+  border: 1px solid var(--surface-border);
+  background: var(--surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  transition: all 0.4s var(--ease-smooth);
-  height: 100%;
+  justify-content: space-between;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition:
+    transform 420ms var(--ease-smooth),
+    box-shadow 420ms var(--ease-smooth),
+    border-color 420ms var(--ease-smooth),
+    background 420ms var(--ease-smooth);
+  min-height: 92px;
+}
+
+.contactCard::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.45), rgba(123, 97, 255, 0.25), rgba(255, 0, 229, 0.35));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0.25;
+  transition: opacity 420ms var(--ease-smooth);
+  pointer-events: none;
 }
 
 .contactCard:hover {
-  border-color: var(--color-accent-cyan);
-  background: rgba(0, 240, 255, 0.05);
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px) rotateX(2deg) rotateY(-2deg);
+  border-color: var(--surface-border-strong);
+  box-shadow:
+    var(--surface-shadow),
+    0 0 34px rgba(0, 240, 255, 0.12);
+  background: rgba(0, 240, 255, 0.045);
 }
 
-.icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+.contactCard:hover::before {
+  opacity: 0.55;
+}
+
+.contactCard:focus-visible {
+  outline: 2px solid var(--color-accent-cyan);
+  outline-offset: 4px;
+}
+
+.cardIcon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  font-size: 1.55rem;
+  filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.12));
+  flex: 0 0 auto;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .label {
+  margin: 0;
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: var(--color-text-primary);
-  margin-bottom: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  color: var(--color-text-primary);
 }
 
 .value {
+  margin: 0;
   font-family: 'Space Mono', monospace;
   font-size: 0.85rem;
   color: var(--color-text-secondary);
   line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.ctaSection {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
+.cardArrow {
+  font-size: 1.1rem;
+  color: var(--color-accent-cyan);
+  opacity: 0.9;
+  flex: 0 0 auto;
+  transform: translateZ(18px);
 }
 
-/* Custom modern buttons */
-.btnBase {
-  padding: 1.2rem 3rem;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s var(--ease-smooth);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+@media (hover: none) {
+  .contactCard:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .contactCard:hover::before {
+    opacity: 0.25;
+  }
 }
 
-.btnPrimary {
-  background: var(--gradient-primary);
-  color: var(--color-text-primary);
-  box-shadow: 0 10px 25px rgba(0, 240, 255, 0.3);
+@media (prefers-reduced-motion: reduce) {
+  .ctaBorder {
+    animation: none;
+  }
+
+  .title {
+    animation: none;
+  }
 }
 
-.btnPrimary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0, 240, 255, 0.5);
-}
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
 
-.btnSecondary {
-  background: transparent;
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-accent-cyan);
-}
+  .header {
+    max-width: none;
+    text-align: center;
+  }
 
-.btnSecondary:hover {
-  background: rgba(0, 240, 255, 0.05);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
+  .ctaRow {
+    justify-content: center;
+  }
+
+  .canvasWrap {
+    opacity: 0.55;
+    -webkit-mask-image: radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 72%);
+    mask-image: radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 72%);
+  }
 }
 
 @media (max-width: 768px) {
+  .contact::after {
+    opacity: 0.25;
+    animation: none;
+  }
+
+  .bg {
+    opacity: 0.35;
+  }
+
+  .title {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
   .contact {
-    padding: 5rem 0;
+    padding: var(--space-10) 0;
   }
 
-  .ctaSection {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .value {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .ctaRow {
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: stretch;
   }
 
-  .btnBase {
+  .ctaButton {
+    width: 100%;
+  }
+
+  .ctaContent {
     width: 100%;
   }
 }

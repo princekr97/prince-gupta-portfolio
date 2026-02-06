@@ -4,7 +4,7 @@ import styles from './MandalaParticles.module.css';
 
 export const MandalaParticles = () => {
   const particles = useMemo(() => {
-    const temp = [];
+    const temp: Array<{ x: number; y: number; delay: number }> = [];
     const mandalaPattern = [
       { radius: 100, count: 8 },
       { radius: 200, count: 16 },
