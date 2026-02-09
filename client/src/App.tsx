@@ -8,6 +8,7 @@ import { Certifications } from './components/sections/Certifications/Certificati
 import { ProjectsShowcase } from './components/sections/Projects/ProjectsShowcase';
 import { ExperienceTimeline } from './components/sections/Experience/ExperienceTimeline';
 import { CleanContact } from './components/CleanContact';
+import { CleanBlog } from './components/CleanBlog';
 import { MagneticCursor } from './components/MagneticCursor';
 import { PWAInstallPrompt } from './components/common/PWAInstallPrompt';
 
@@ -82,6 +83,7 @@ function App() {
         <Certifications />
 
         <ProjectsShowcase />
+        <CleanBlog />
         <CleanContact />
       </main>
       <Footer />

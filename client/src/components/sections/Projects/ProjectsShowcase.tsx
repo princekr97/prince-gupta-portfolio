@@ -132,9 +132,9 @@ const ProjectCard = ({
                     <div className={styles.imageOverlay} />
                     <div className={styles.holoScan} />
 
-                    {isSunbird && (
+                    {/* {isSunbird && (
                         <div className={styles.sunbirdLogo}>S</div>
-                    )}
+                    )} */}
 
                     <div className={styles.cardBrand}>
                         {isContribution ? 'OSS Contribution' : project.category}

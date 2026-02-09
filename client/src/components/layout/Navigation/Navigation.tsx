@@ -9,12 +9,12 @@ import { Logo } from '../../common/Logo/Logo';
 import usePortfolioData from '../../../hooks/usePortfolioData';
 
 const navItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
+    { id: 'home', label: 'Home' },
     { id: 'experience', label: 'Experience' },
     { id: 'skills', label: 'Skills' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'projects', label: 'Projects' },
+    { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' }
 ];
 
@@ -30,8 +30,13 @@ export const Navigation = () => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
 
+            // Get dynamic navigation height
+            const nav = document.querySelector('nav');
+            const navHeight = nav ? nav.offsetHeight : 0;
+            const extraPadding = 20;
+
             const sections = navItems.map(item => document.getElementById(item.id));
-            const scrollPosition = window.scrollY + 150; // Adjust for mobile nav height
+            const scrollPosition = window.scrollY + navHeight + extraPadding;
 
             const currentSection = sections.find(section => {
                 if (!section) return false;
@@ -58,8 +63,14 @@ export const Navigation = () => {
         const element = document.getElementById(id);
         if (!element) return;
 
-        const isMobile = window.innerWidth < 768;
-        const offset = isMobile ? 60 : 80;
+        // Get the actual navigation height dynamically
+        const nav = document.querySelector('nav');
+        const navHeight = nav ? nav.offsetHeight : 0;
+
+        // Add extra padding to ensure content is visible (not hidden under nav)
+        const extraPadding = 20;
+        const offset = navHeight + extraPadding;
+
         const elementPosition = element.offsetTop - offset;
 
         triggerHaptic('light');
@@ -70,11 +81,14 @@ export const Navigation = () => {
         });
     };
 
-    // Handle initial hash on load
+    // Handle initial hash on load or default to home
     useEffect(() => {
         const hash = window.location.hash.slice(1);
         if (hash) {
             setTimeout(() => scrollToSection(hash), 100);
+        } else {
+            // Default to home section if no hash on load
+            setTimeout(() => scrollToSection('home'), 100);
         }
     }, []);
 

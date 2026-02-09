@@ -22,7 +22,13 @@ export const CleanHero = () => {
     if (!element) return;
 
     window.history.pushState(null, '', `#${sectionId}`);
-    const offset = window.innerWidth < 768 ? 60 : 80;
+
+    // Get the actual navigation height dynamically
+    const nav = document.querySelector('nav');
+    const navHeight = nav ? nav.offsetHeight : 0;
+    const extraPadding = 20;
+    const offset = navHeight + extraPadding;
+
     const elementPosition = element.offsetTop - offset;
 
     window.scrollTo({
@@ -34,7 +40,7 @@ export const CleanHero = () => {
   return (
     <section
       className={styles.hero}
-      id="hero"
+      id="home"
       style={{
         '--mouse-x': `${mousePos.x}px`,
         '--mouse-y': `${mousePos.y}px`,

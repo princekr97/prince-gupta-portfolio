@@ -1,0 +1,82 @@
+.enhancer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+.backgroundLayer,
+.midgroundLayer,
+.foregroundLayer {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.backgroundLayer {
+  z-index: 1;
+  transform: translateZ(-200px) scale(1.2);
+}
+
+.midgroundLayer {
+  z-index: 2;
+  transform: translateZ(-80px) scale(1.08);
+}
+
+.foregroundLayer {
+  z-index: 3;
+  transform: translateZ(0px);
+}
+
+.particlesContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.6), transparent);
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+/* Mobile optimization - reduce animation intensity */
+@media (max-width: 768px) {
+  .enhancer {
+    perspective: 800px;
+  }
+  
+  .backgroundLayer {
+    transform: translateZ(-100px) scale(1.1);
+  }
+  
+  .midgroundLayer {
+    transform: translateZ(-40px) scale(1.04);
+  }
+  
+  .particle {
+    display: none; /* Disable particles on mobile for performance */
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .enhancer,
+  .backgroundLayer,
+  .midgroundLayer,
+  .foregroundLayer {
+    transform: none !important;
+    perspective: none !important;
+  }
+  
+  .particle {
+    display: none;
+  }
+}
