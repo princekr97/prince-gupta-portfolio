@@ -1,6 +1,6 @@
 .showcase {
     position: relative;
-    padding: var(--space-20) 0;
+    padding: var(--space-50) 0;
     background: var(--section-bg);
     overflow: hidden;
     isolation: isolate;

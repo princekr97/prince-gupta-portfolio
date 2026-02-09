@@ -228,6 +228,10 @@
   animation: gradientShift 5s ease infinite;
   background-size: 200% 200%;
   transform-origin: center;
+  margin-right: 0.01em;
+  /* Add small gap between characters */
+  letter-spacing: 0.02em;
+  /* Add letter spacing */
 }
 
 .nameWord:hover {
@@ -560,7 +564,7 @@
 
   /* Typography */
   .greeting {
-    font-size: 0.65rem;
+    font-size: 0.9rem;
     letter-spacing: 4px;
     margin-bottom: 1.5rem;
     font-weight: 600;
@@ -696,7 +700,7 @@
   }
 
   .greeting {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   .nameDisplay {
@@ -1514,7 +1518,7 @@
 /* Extra Small Screens */
 @media (max-width: 480px) {
   .hero {
-    padding: 80px 4% 0;
+    padding: 100px 4% 0;
   }
 
   .nameDisplay {

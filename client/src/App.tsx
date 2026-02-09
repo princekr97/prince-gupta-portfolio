@@ -3,6 +3,7 @@ import { Loader } from './components/common/Loader/Loader';
 import { SEO } from './components/layout/SEO/SEO';
 import { CleanHero } from './components/CleanHero';
 import { CleanSkills } from './components/CleanSkills';
+import { AnimatedBackground } from './components/common/AnimatedBackground/AnimatedBackground';
 
 import { Certifications } from './components/sections/Certifications/Certifications';
 import { ProjectsShowcase } from './components/sections/Projects/ProjectsShowcase';
@@ -71,6 +72,9 @@ function App() {
 
   return (
     <div className="app-wrapper" style={{ position: 'relative' }}>
+      {/* Global Premium Animated Background */}
+      <AnimatedBackground />
+
       <SEO />
       <Loader />
       <MagneticCursor />

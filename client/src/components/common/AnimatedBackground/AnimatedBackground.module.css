@@ -1,0 +1,454 @@
+/* ============================================
+   ULTRA PREMIUM 3D ANIMATED GRADIENT BACKGROUND
+   Modern, Interactive, Impressive
+   ============================================ */
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    perspective: 1000px;
+}
+
+/* Base dark gradient */
+.baseGradient {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(20, 10, 30, 1) 0%, transparent 50%),
+        linear-gradient(180deg,
+            #050508 0%,
+            #0a0a12 20%,
+            #0d0815 40%,
+            #0a0a0f 60%,
+            #080810 80%,
+            #050508 100%);
+}
+
+/* ============================================
+   AURORA / NORTHERN LIGHTS EFFECT
+   ============================================ */
+.auroraContainer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.6;
+}
+
+.aurora1 {
+    position: absolute;
+    top: -50%;
+    left: -25%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(0, 255, 255, 0.15) 20%,
+            rgba(0, 200, 255, 0.1) 40%,
+            transparent 60%);
+    filter: blur(60px);
+    animation: aurora 15s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+.aurora2 {
+    position: absolute;
+    top: -30%;
+    right: -25%;
+    width: 120%;
+    height: 80%;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(255, 0, 128, 0.12) 30%,
+            rgba(139, 0, 255, 0.08) 50%,
+            transparent 70%);
+    filter: blur(80px);
+    animation: aurora 20s ease-in-out infinite reverse;
+    animation-delay: -5s;
+    transform-origin: top right;
+}
+
+.aurora3 {
+    position: absolute;
+    top: -20%;
+    left: 10%;
+    width: 80%;
+    height: 60%;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(100, 0, 255, 0.1) 40%,
+            transparent 70%);
+    filter: blur(100px);
+    animation: aurora 25s ease-in-out infinite;
+    animation-delay: -10s;
+    transform-origin: top left;
+}
+
+@keyframes aurora {
+
+    0%,
+    100% {
+        transform: scaleX(1) scaleY(1) rotate(-5deg) translateY(0);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: scaleX(1.1) scaleY(0.9) rotate(0deg) translateY(10%);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scaleX(0.95) scaleY(1.1) rotate(5deg) translateY(5%);
+        opacity: 0.5;
+    }
+
+    75% {
+        transform: scaleX(1.05) scaleY(0.95) rotate(-3deg) translateY(-5%);
+        opacity: 0.7;
+    }
+}
+
+/* ============================================
+   ANIMATED MESH GRADIENT
+   ============================================ */
+.meshGradient {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(255, 0, 128, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 60% at 40% 80%, rgba(139, 0, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 50% at 70% 60%, rgba(0, 200, 255, 0.04) 0%, transparent 50%);
+    animation: meshMove 30s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes meshMove {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1) rotateX(0deg);
+    }
+
+    25% {
+        transform: translate3d(2%, -3%, 50px) scale(1.02) rotateX(2deg);
+    }
+
+    50% {
+        transform: translate3d(-1%, 2%, -30px) scale(0.98) rotateX(-1deg);
+    }
+
+    75% {
+        transform: translate3d(-2%, -1%, 20px) scale(1.01) rotateX(1deg);
+    }
+}
+
+/* ============================================
+   3D GEOMETRIC SHAPES
+   ============================================ */
+.shapesContainer {
+    position: absolute;
+    inset: 0;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+}
+
+.shape3d {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 15%;
+    left: 10%;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-radius: 30%;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.02) 0%, transparent 50%);
+    transform-style: preserve-3d;
+    opacity: 0.4;
+}
+
+.shape2 {
+    width: 400px;
+    height: 400px;
+    top: auto;
+    bottom: 20%;
+    left: auto;
+    right: 15%;
+    border-color: rgba(255, 0, 128, 0.08);
+    background: linear-gradient(135deg, rgba(255, 0, 128, 0.02) 0%, transparent 50%);
+}
+
+.shape3 {
+    width: 250px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-color: rgba(139, 0, 255, 0.1);
+    background: linear-gradient(135deg, rgba(139, 0, 255, 0.02) 0%, transparent 50%);
+}
+
+/* ============================================
+   INTERACTIVE MOUSE GLOW
+   ============================================ */
+.interactiveGlow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(0, 255, 255, 0.15) 0%,
+            rgba(255, 0, 128, 0.08) 30%,
+            transparent 70%);
+    filter: blur(80px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* ============================================
+   FLOATING PARTICLES
+   ============================================ */
+.particlesContainer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 255, 255, 0.6);
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px rgba(0, 255, 255, 0.5),
+        0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* ============================================
+   ANIMATED RAYS
+   ============================================ */
+.raysContainer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.3;
+}
+
+.ray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 200vh;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(0, 255, 255, 0.3) 20%,
+            rgba(255, 0, 128, 0.2) 50%,
+            rgba(0, 255, 255, 0.3) 80%,
+            transparent 100%);
+    transform-origin: center center;
+    transform: rotate(var(--angle, 0deg));
+    animation: rayPulse 10s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+    opacity: 0;
+}
+
+@keyframes rayPulse {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: rotate(var(--angle, 0deg)) scaleY(0.8);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: rotate(var(--angle, 0deg)) scaleY(1.2);
+    }
+}
+
+/* ============================================
+   NOISE TEXTURE
+   ============================================ */
+.noiseOverlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+}
+
+/* ============================================
+   PERSPECTIVE GRID
+   ============================================ */
+.perspectiveGrid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background-image:
+        linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: bottom center;
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+    animation: gridFlow 20s linear infinite;
+}
+
+@keyframes gridFlow {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 60px;
+    }
+}
+
+/* ============================================
+   GLOW SPOTS
+   ============================================ */
+.glowSpot1 {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.15) 0%, transparent 70%);
+    filter: blur(80px);
+    will-change: transform, opacity;
+}
+
+.glowSpot2 {
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 0, 128, 0.12) 0%, transparent 70%);
+    filter: blur(100px);
+    will-change: transform, opacity;
+}
+
+.glowSpot3 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(139, 0, 255, 0.1) 0%, transparent 70%);
+    filter: blur(120px);
+    will-change: transform, opacity;
+}
+
+/* ============================================
+   VIGNETTE EFFECT
+   ============================================ */
+.vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center,
+            transparent 0%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+}
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   ============================================ */
+@media (max-width: 768px) {
+    .auroraContainer {
+        opacity: 0.3;
+    }
+
+    .aurora1,
+    .aurora2,
+    .aurora3 {
+        animation: none;
+    }
+
+    .meshGradient {
+        animation: none;
+        opacity: 0.5;
+    }
+
+    .shapesContainer {
+        display: none;
+    }
+
+    .raysContainer {
+        display: none;
+    }
+
+    .perspectiveGrid {
+        animation: none;
+        opacity: 0.3;
+    }
+
+    .glowSpot1,
+    .glowSpot2,
+    .glowSpot3 {
+        filter: blur(60px);
+        opacity: 0.3;
+    }
+
+    .glowSpot1 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .glowSpot2 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .glowSpot3 {
+        width: 350px;
+        height: 350px;
+    }
+
+    .particlesContainer {
+        display: none;
+    }
+
+    .interactiveGlow {
+        display: none;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION SUPPORT
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    .aurora1,
+    .aurora2,
+    .aurora3,
+    .meshGradient,
+    .shape3d,
+    .ray,
+    .perspectiveGrid,
+    .glowSpot1,
+    .glowSpot2,
+    .glowSpot3,
+    .particle {
+        animation: none !important;
+    }
+
+    .interactiveGlow,
+    .particlesContainer,
+    .raysContainer,
+    .shapesContainer {
+        display: none;
+    }
+}

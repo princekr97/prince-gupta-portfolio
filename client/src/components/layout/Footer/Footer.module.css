@@ -1,24 +1,25 @@
+/* ===== FOOTER CONTAINER ===== */
 .footer {
     position: relative;
-    padding: 4rem 0 2rem;
+    padding: 5rem 0 2rem;
     overflow: hidden;
-    background: #0a0a0f;
+    background: linear-gradient(180deg, #0a0a0f 0%, #050508 100%);
     border-top: 1px solid rgba(0, 255, 255, 0.1);
 }
 
-/* Modern Animated Grid Background - Matching Hero */
+/* Animated Grid Background */
 .footer::before {
     content: '';
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(0, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
     animation: gridMove 20s linear infinite;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 @keyframes gridMove {
@@ -27,7 +28,7 @@
     }
 
     100% {
-        transform: translateY(50px);
+        transform: translateY(40px);
     }
 }
 
@@ -40,45 +41,49 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
-.topGrid {
+/* ===== MAIN SECTION (Brand + Links) ===== */
+.mainSection {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     gap: 4rem;
     align-items: start;
 }
 
-.brand {
+/* ===== BRAND SECTION (Left) ===== */
+.brandSection {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
+    max-width: 400px;
 }
 
 .tagline {
     font-family: 'Space Mono', monospace;
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.95rem;
-    line-height: 1.6;
-    max-width: 350px;
+    line-height: 1.7;
+    margin: 0;
 }
 
 .statusPill {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 999px;
     border: 1px solid rgba(0, 255, 255, 0.3);
-    background: rgba(0, 255, 255, 0.08);
+    background: rgba(0, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     width: fit-content;
+    backdrop-filter: blur(10px);
 }
 
 .statusDot {
@@ -95,39 +100,48 @@
     0%,
     100% {
         opacity: 1;
+        transform: scale(1);
     }
 
     50% {
-        opacity: 0.5;
+        opacity: 0.6;
+        transform: scale(0.95);
     }
 }
 
-.group {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+/* ===== LINKS SECTION (Right) ===== */
+.linksSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
 }
 
-.groupTitle {
+.linkGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.linkTitle {
     font-family: 'Orbitron', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #00ffff;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin: 0;
 }
 
-.nav {
+.linkList {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.75rem;
 }
 
-.navLink {
+.link {
     font-family: 'Space Mono', monospace;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.65);
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
@@ -136,7 +150,7 @@
     width: fit-content;
 }
 
-.navLink::before {
+.link::before {
     content: '▸';
     position: absolute;
     left: 0;
@@ -146,107 +160,80 @@
     transition: all 0.3s ease;
 }
 
-.navLink:hover {
+.link:hover {
     color: #00ffff;
     transform: translateX(5px);
 }
 
-.navLink:hover::before {
+.link:hover::before {
     opacity: 1;
     transform: translateX(0);
 }
 
-.social {
+/* ===== SOCIAL LINKS ===== */
+.socialLinks {
     display: flex;
     align-items: center;
+    gap: 0.75rem;
     flex-wrap: wrap;
-    gap: 1rem;
 }
 
-.socialButton {
-    position: relative;
-    width: 48px;
-    height: 48px;
-    border-radius: 999px;
+.socialLink {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    -webkit-tap-highlight-color: transparent;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
-.socialFloater {
-    position: absolute;
-    inset: 0;
-    border-radius: 999px;
-    transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
-    z-index: 0;
+.socialLink:hover {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.4);
+    color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
 }
 
-.socialIcon {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    border-radius: 999px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    background: rgba(8, 10, 18, 0.5);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color 0.3s var(--ease-smooth), transform 0.3s var(--ease-smooth);
+.socialLink svg {
+    transition: transform 0.3s ease;
 }
 
-.socialPath {
-    fill: #ffffff;
-    transition: fill 0.3s var(--ease-smooth);
+.socialLink:hover svg {
+    transform: scale(1.1);
 }
 
-.socialButton:hover .socialFloater {
-    transform: translateY(-18px);
-    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.45);
-}
-
-.socialButton:hover .socialPath {
-    fill: #171543;
-}
-
-.socialButton:focus-visible {
-    outline: 2px solid var(--color-accent-cyan);
-    outline-offset: 4px;
-}
-
-@media (hover: none) {
-    .socialButton:hover .socialFloater {
-        transform: none;
-        box-shadow: none;
-    }
-
-    .socialButton:hover .socialPath {
-        fill: #ffffff;
-    }
-}
-
+/* ===== DIVIDER ===== */
 .divider {
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(0, 255, 255, 0.2) 20%,
+            rgba(0, 255, 255, 0.2) 80%,
+            transparent);
+    margin: 1rem 0;
 }
 
+/* ===== BOTTOM SECTION ===== */
 .bottomSection {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .copyright {
     font-family: 'Space Mono', monospace;
     font-size: 0.8rem;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
 }
 
 .backToTop {
@@ -254,47 +241,65 @@
     font-size: 0.7rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 0.55rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.6rem 1.2rem;
     border-radius: 999px;
-    transition: all 0.3s var(--ease-smooth);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .backToTop:hover {
-    color: var(--color-text-primary);
-    border-color: rgba(0, 240, 255, 0.5);
-    box-shadow: 0 0 18px rgba(0, 240, 255, 0.15);
+    color: #00ffff;
+    border-color: rgba(0, 255, 255, 0.5);
+    background: rgba(0, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+    transform: translateY(-2px);
 }
 
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet */
 @media (max-width: 1024px) {
-    .topGrid {
-        grid-template-columns: 1fr 1fr;
+    .mainSection {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
-    .brand {
-        grid-column: span 2;
+    .linksSection {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .brandSection {
+        max-width: 100%;
     }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
     .footer {
-        padding: var(--space-10) 0 var(--space-6);
+        padding: 3rem 0 2rem;
     }
 
     .footer::before {
-        opacity: 0.3;
+        opacity: 0.2;
         animation: none;
     }
 
-    .topGrid {
-        grid-template-columns: 1fr;
-        gap: var(--space-6);
-        text-align: center;
+    .content {
+        gap: 2rem;
     }
 
-    .brand {
+    .mainSection {
+        gap: 2.5rem;
+    }
+
+    .brandSection {
+        text-align: center;
         align-items: center;
     }
 
@@ -302,32 +307,82 @@
         margin: 0 auto;
     }
 
-    .nav {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        justify-items: center;
+    .linksSection {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
     }
 
-    .navLink {
+    .linkGroup {
+        align-items: center;
+    }
+
+    .linkList {
+        align-items: center;
+    }
+
+    .link {
         padding-left: 0;
     }
 
-    .navLink::before {
+    .link::before {
         display: none;
     }
 
-    .social {
+    .link:hover {
+        transform: none;
+    }
+
+    .socialLinks {
         justify-content: center;
     }
 
     .bottomSection {
         flex-direction: column;
         text-align: center;
+        gap: 1rem;
     }
 }
 
-@media (max-width: 520px) {
-    .nav {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: 0.75rem;
+/* Small Mobile */
+@media (max-width: 480px) {
+    .footer {
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .tagline {
+        font-size: 0.85rem;
+    }
+
+    .statusPill {
+        font-size: 0.7rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .linkTitle {
+        font-size: 0.7rem;
+    }
+
+    .link {
+        font-size: 0.8rem;
+    }
+
+    .socialLink {
+        width: 36px;
+        height: 36px;
+    }
+
+    .socialLink svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .copyright {
+        font-size: 0.75rem;
+    }
+
+    .backToTop {
+        font-size: 0.65rem;
+        padding: 0.5rem 1rem;
     }
 }

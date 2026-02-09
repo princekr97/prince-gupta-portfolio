@@ -82,11 +82,11 @@ export const CleanHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.8 }}
         >
-          Hi, I am
+          {data.ui.hero.greeting}
         </motion.div>
 
         <motion.h1 className={styles.nameDisplay}>
-          {['PRINCE KUMAR GUPTA'].map((line, lineIdx) => (
+          {[data.ui.hero.name].map((line, lineIdx) => (
             <span key={lineIdx} className={styles.nameLine}>
               {line.split('').map((char, charIdx) => (
                 <motion.span
@@ -138,7 +138,7 @@ export const CleanHero = () => {
               >
                 <motion.img
                   src={profileImg}
-                  alt="Prince Kumar Gupta"
+                  alt={data.personal.name}
                   className={styles.profileImage}
                   initial={{ scale: 1.2 }}
                   animate={{ scale: 1 }}
@@ -184,8 +184,8 @@ export const CleanHero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.8 }}
               >
-                <span className={styles.bioTitleMain}>Full Stack Developer</span>
-                <span className={styles.bioTitleSub}>{data.personal.subtitle}</span>
+                <span className={styles.bioTitleMain}>{data.ui.hero.bioTitle}</span>
+                <span className={styles.bioTitleSub}>{data.ui.hero.bioSubtitle}</span>
               </motion.h2>
 
               <motion.p
@@ -194,8 +194,8 @@ export const CleanHero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.7, duration: 0.6 }}
               >
-                <span className={styles.highlight}>{data.stats.experience} years</span> building scalable web applications across
-                <span className={styles.highlight}> frontend, backend, and databases</span>. Specializing in React, Angular, Node.js, and TypeScript—delivering production-ready systems at scale.
+                <span className={styles.highlight}>{data.stats.experience} {data.ui.hero.bioDescription}</span>
+                <span className={styles.highlight}> {data.ui.hero.bioHighlight}</span>. Specializing in React, Angular, Node.js, and TypeScript—delivering production-ready systems at scale.
               </motion.p>
 
               <motion.div
@@ -204,7 +204,7 @@ export const CleanHero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.9, duration: 0.6 }}
               >
-                End-to-end ownership — from UI/UX to backend architecture and database design. Focused on performance and maintainability.
+                {data.ui.hero.bioOwnership}
               </motion.div>
 
               <motion.div
@@ -216,29 +216,25 @@ export const CleanHero = () => {
                 {/* Download Resume Button */}
                 <div className={styles.btnGlowContainer}>
                   <button className={styles.glowButton} onClick={() => window.open('/resume.pdf')}>
-                    Resume
+                    {data.ui.hero.buttons.resume}
                   </button>
                 </div>
 
                 {/* View Projects Button */}
                 <div className={styles.btnGlowContainer}>
                   <button className={styles.glowButton} onClick={() => scrollToSection('projects')}>
-                    Projects
+                    {data.ui.hero.buttons.projects}
                   </button>
                 </div>
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 className={styles.socialLinks}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.3, duration: 0.6 }}
               >
-                {[
-                  { icon: '💼', url: 'https://www.linkedin.com/in/prince-kumargupta-59796014b', label: 'LinkedIn' },
-                  { icon: '🐙', url: 'https://github.com/', label: 'GitHub' },
-                  { icon: '📧', url: 'mailto:princekrgupta756@gmail.com', label: 'Email' }
-                ].map((social, i) => (
+                {data.ui.hero.socialLinks.map((social, i) => (
                   <motion.a
                     key={i}
                     href={social.url}
@@ -254,7 +250,7 @@ export const CleanHero = () => {
                     {social.icon}
                   </motion.a>
                 ))}
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </motion.div>

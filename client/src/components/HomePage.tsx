@@ -226,7 +226,7 @@ export const OnePage = () => {
             </div>
 
             {/* Hidden Contact Section for Scroll */}
-            <div id="contact-section" className={styles.contactSection}>
+            {/* <div id="contact-section" className={styles.contactSection}>
                 <div className={styles.contactContent}>
                     <h2>Contact Me</h2>
                     <div className={styles.contactInfo}>
@@ -237,11 +237,11 @@ export const OnePage = () => {
                             💻 GitHub
                         </a>
                         <a href={data.contact.linkedin} target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
-                            💼 LinkedIn
+                            💼 LinkedIn - Share
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

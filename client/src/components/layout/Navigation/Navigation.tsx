@@ -8,21 +8,12 @@ import { useHaptics } from '../../../hooks/useHaptics';
 import { Logo } from '../../common/Logo/Logo';
 import usePortfolioData from '../../../hooks/usePortfolioData';
 
-const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'certifications', label: 'Certifications' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'blog', label: 'Blog' },
-    { id: 'contact', label: 'Contact' }
-];
-
 export const Navigation = () => {
-    const { activeSection, setActiveSection, isMenuOpen, setIsMenuOpen, toggleMenu } = useNavigationStore();
-    const { theme, toggleTheme } = useThemeStore();
-    const { triggerHaptic } = useHaptics();
     const data = usePortfolioData();
+    const navItems = data.ui.navigation.items;
+    const { activeSection, setActiveSection, isMenuOpen, setIsMenuOpen, toggleMenu } = useNavigationStore();
+    const { toggleTheme } = useThemeStore();
+    const { triggerHaptic } = useHaptics();
     const [isScrolled, setIsScrolled] = useState(false);
     const { scrollYProgress } = useScroll();
 
@@ -208,19 +199,11 @@ export const Navigation = () => {
                         <div className={styles.mobileSocial}>
                             <a href={data.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
                             <a href={data.contact.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                            <button
-                                className={styles.themeToggle}
-                                onClick={() => {
-                                    triggerHaptic('light');
-                                    toggleTheme();
-                                }}
-                            >
-                                {theme === 'dark' ? '🌙' : '☀️'}
-                            </button>
+
                         </div>
 
                         <div className={styles.mobileFooter}>
-                            Prince Kumar Gupta • Senior Software Engineer
+                            {data.ui.navigation.mobileFooter}
                         </div>
                     </motion.div>
                 )}

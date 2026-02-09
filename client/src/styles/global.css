@@ -174,6 +174,19 @@ a:hover {
     }
 }
 
+/* Scroll margin for all sections to prevent content hiding under nav */
+section {
+    scroll-margin-top: 80px;
+    /* Mobile nav height + padding */
+}
+
+@media (min-width: 768px) {
+    section {
+        scroll-margin-top: 90px;
+        /* Desktop nav height + padding */
+    }
+}
+
 .section {
     padding-block: 0;
 }
@@ -285,6 +298,135 @@ a:hover {
     body {
         padding-left: max(0px, env(safe-area-inset-left));
         padding-right: max(0px, env(safe-area-inset-right));
+    }
+}
+
+/* ============================================
+   PWA & MOBILE PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* PWA Standalone Mode */
+@media (display-mode: standalone) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Mobile Performance: Disable Heavy Animations */
+@media (max-width: 768px) {
+
+    /* Disable 3D transforms for better performance */
+    * {
+        transform-style: flat !important;
+    }
+
+    /* Disable parallax effects */
+    [data-parallax] {
+        transform: none !important;
+    }
+
+    /* Hide decorative elements that impact performance */
+    .orb1,
+    .orb2,
+    .shapes3d,
+    ._orb1_kake7_106,
+    ._orb2_kake7_107,
+    ._shapes3d_kake7_151 {
+        display: none !important;
+    }
+
+    /* Simplify grid animations */
+    .heroGridInteractive,
+    ._heroGridInteractive_kake7_30 {
+        animation: none !important;
+        opacity: 0.3 !important;
+    }
+
+    /* Disable complex background animations */
+    .spotlight,
+    ._spotlight_kake7_49 {
+        animation: none !important;
+        opacity: 0.2 !important;
+    }
+
+    /* Reduce mandala complexity */
+    svg._mandala_12ieq_1 {
+        opacity: 0.1 !important;
+    }
+
+    /* Simplify card hover effects */
+    .cardGlow,
+    ._cardGlow_1lh59_202,
+    ._cardGlow_1bm1b_201,
+    ._cardGlow_1j1hx_312 {
+        display: none !important;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Disable hover effects on touch devices */
+    *:hover {
+        transform: none !important;
+    }
+
+    /* Remove magnetic cursor effects */
+    ._cursor_babty_1,
+    ._cursorDot_babty_14 {
+        display: none !important;
+    }
+
+    /* Simplify button interactions */
+    button:hover,
+    a:hover {
+        transform: none !important;
+    }
+}
+
+/* iOS Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+    body {
+        /* Smooth scrolling on iOS */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Fix iOS input zoom */
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+
+    /* Prevent bounce scroll */
+    body {
+        overscroll-behavior-y: contain;
+    }
+}
+
+/* Reduce Motion Preference - Enhanced */
+@media (prefers-reduced-motion: reduce) {
+
+    /* Disable all decorative animations */
+    .orb1,
+    .orb2,
+    .shapes3d,
+    .spotlight,
+    .heroGridInteractive,
+    ._orb1_kake7_106,
+    ._orb2_kake7_107,
+    ._shapes3d_kake7_151,
+    ._spotlight_kake7_49,
+    ._heroGridInteractive_kake7_30 {
+        animation: none !important;
+        display: none !important;
+    }
+
+    /* Disable transform animations */
+    * {
+        transform: none !important;
+        transition: none !important;
     }
 }
 

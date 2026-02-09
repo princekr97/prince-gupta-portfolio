@@ -2,11 +2,11 @@
   "personal": {
     "name": "Prince Kumar Gupta",
     "title": "Full Stack Developer",
-    "subtitle": "React | Angular | Node.js | LMS | PWA | ONDC",
+    "subtitle": "React | Angular | Node.js | GenAI | PWA | ONDC",
     "tagline": "Building Scalable Enterprise Applications",
     "location": "Bengaluru, Karnataka, India",
-    "summary": "Full Stack Developer with 6+ years of experience building scalable, high-performance web applications across frontend, backend, and databases. I specialize in React, Angular, Node.js, and REST APIs, delivering clean, maintainable, production-ready systems used at scale. I own features end-to-end — from UI/UX implementation to backend architecture, API optimization, and database design. Focused on performance, reliability, and long-term maintainability.",
-    "yearsOfExperience": "6+",
+    "summary": "Full Stack Developer with 6.5+ years of experience building scalable, high-performance web applications across frontend, backend, and databases. I specialize in React, Angular, Node.js, and REST APIs, delivering clean, maintainable, production-ready systems used at scale. I own features end-to-end — from UI/UX implementation to backend architecture, API optimization, and database design. Focused on performance, reliability, and long-term maintainability.",
+    "yearsOfExperience": "6.5+",
     "expertise": [
       "End-to-end feature ownership",
       "UI/UX implementation",
@@ -48,8 +48,8 @@
   "contact": {
     "phone": "NA",
     "email": "princekrgupta756@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/prince-kumargupta-59796014b",
-    "github": "https://github.com/",
+    "linkedin": "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile",
+    "github": "https://github.com/princekr97",
     "location": "Bengaluru, Karnataka, India"
   },
   "skills": {
@@ -599,9 +599,163 @@
     }
   ],
   "stats": {
-    "experience": "6+",
+    "experience": "6.5+",
     "projects": "10+",
     "clients": "5+",
     "technologies": "20+"
+  },
+  "ui": {
+    "hero": {
+      "greeting": "Hi, I am",
+      "name": "PRINCE KUMAR GUPTA",
+      "bioTitle": "Full Stack Developer",
+      "bioSubtitle": "React | Angular | Node.js | GenAI | PWA | ONDC",
+      "bioDescription": "years building scalable web applications across",
+      "bioHighlight": "frontend, backend, and databases",
+      "bioOwnership": "End-to-end ownership — from UI/UX to backend architecture and database design. Focused on performance and maintainability.",
+      "buttons": {
+        "resume": "Resume",
+        "projects": "Projects"
+      },
+      "socialLinks": [
+        {
+          "icon": "💼",
+          "url": "https://www.linkedin.com/in/princegupta",
+          "label": "LinkedIn"
+        },
+        {
+          "icon": "🐙",
+          "url": "https://github.com/princekr97",
+          "label": "GitHub"
+        },
+        {
+          "icon": "📧",
+          "url": "mailto:princekrgupta756@gmail.com",
+          "label": "Email"
+        }
+      ]
+    },
+    "seo": {
+      "title": "Prince Kumar Gupta | Senior Software Engineer",
+      "description": "Senior Software Engineer with 6.3+ years of experience specializing in React, Node.js, and TypeScript. Building scalable web applications for millions of users.",
+      "keywords": "Senior Software Engineer, React Developer, Node.js Expert, TypeScript, Portfolio, Prince Kumar Gupta",
+      "author": "Prince Kumar Gupta",
+      "ogImage": "/og-image.jpg"
+    },
+    "navigation": {
+      "items": [
+        {
+          "id": "home",
+          "label": "Home"
+        },
+        {
+          "id": "experience",
+          "label": "Experience"
+        },
+        {
+          "id": "skills",
+          "label": "Skills"
+        },
+        {
+          "id": "certifications",
+          "label": "Certifications"
+        },
+        {
+          "id": "projects",
+          "label": "Projects"
+        },
+        {
+          "id": "blog",
+          "label": "Blog"
+        },
+        {
+          "id": "contact",
+          "label": "Contact"
+        }
+      ],
+      "mobileFooter": "Prince Kumar Gupta • Senior Software Engineer"
+    },
+    "footer": {
+      "copyright": "© {year} Prince Kumar Gupta. All Systems Operational.",
+      "tagline": "Crafted with precision and passion",
+      "sections": [
+        {
+          "title": "Quick Links",
+          "links": [
+            {
+              "label": "Home",
+              "url": "#home"
+            },
+            {
+              "label": "About",
+              "url": "#about"
+            },
+            {
+              "label": "Projects",
+              "url": "#projects"
+            },
+            {
+              "label": "Contact",
+              "url": "#contact"
+            }
+          ]
+        },
+        {
+          "title": "Connect",
+          "links": [
+            {
+              "label": "LinkedIn",
+              "url": "https://www.linkedin.com/in/princegupta"
+            },
+            {
+              "label": "GitHub",
+              "url": "https://github.com/princekr97"
+            },
+            {
+              "label": "Email",
+              "url": "mailto:princekrgupta756@gmail.com"
+            }
+          ]
+        }
+      ]
+    },
+    "sections": {
+      "projects": {
+        "title": "Projects & Contributions",
+        "subtitle": "Tactical deployments & mission-critical codebases"
+      },
+      "experience": {
+        "title": "Professional Journey",
+        "subtitle": "Building the future, one line at a time"
+      },
+      "skills": {
+        "title": "Technical Arsenal",
+        "subtitle": "Technologies I work with"
+      },
+      "certifications": {
+        "title": "Certifications & Achievements",
+        "subtitle": "Continuous learning and growth"
+      },
+      "contact": {
+        "title": "Get In Touch",
+        "subtitle": "Let's build something amazing together",
+        "formLabels": {
+          "name": "Your Name",
+          "email": "Your Email",
+          "message": "Your Message",
+          "submit": "Send Message"
+        }
+      },
+      "blog": {
+        "title": "Latest Insights",
+        "subtitle": "Thoughts on technology and development"
+      }
+    },
+    "messages": {
+      "loading": "Loading...",
+      "error": "Something went wrong",
+      "success": "Success!",
+      "noData": "No data available"
+    }
   }
 }

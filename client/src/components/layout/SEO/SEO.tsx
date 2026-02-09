@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import usePortfolioData from '../../../hooks/usePortfolioData';
 
 interface SEOProps {
     title?: string;
@@ -8,13 +9,15 @@ interface SEOProps {
     url?: string;
 }
 
-export const SEO = ({
-    title = 'Prince Kumar Gupta | Senior Software Engineer',
-    description = 'Senior Software Engineer with 6.3+ years of experience specializing in React, Node.js, and TypeScript. Building scalable web applications for millions of users.',
-    keywords = 'Senior Software Engineer, React Developer, Node.js Expert, TypeScript, Portfolio, Prince Kumar Gupta',
-    image = '/og-image.png',
-    url = 'https://princegupta.dev'
-}: SEOProps) => {
+export const SEO = (props: SEOProps) => {
+    const data = usePortfolioData();
+    const {
+        title = data.ui.seo.title,
+        description = data.ui.seo.description,
+        keywords = data.ui.seo.keywords,
+        image = data.ui.seo.ogImage,
+        url = 'https://princegupta.dev'
+    } = props;
     useEffect(() => {
         document.title = title;
 
