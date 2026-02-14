@@ -4,10 +4,14 @@ import styles from './CleanHero.module.css';
 import usePortfolioData from '../hooks/usePortfolioData';
 import profileImg from '../assets/profile.jpg'; // Import profile image
 import { MandalaOverlay } from './common/Decorations/MandalaOverlay';
+import { Typewriter } from './common/Typewriter';
 
 export const CleanHero = () => {
   const data = usePortfolioData();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  // Tech stack text for typewriter animation
+  const techStackText = 'React | Angular | Node.js | GenAI | PWA | ONDC';
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -185,7 +189,13 @@ export const CleanHero = () => {
                 transition={{ delay: 1, duration: 0.8 }}
               >
                 <span className={styles.bioTitleMain}>{data.ui.hero.bioTitle}</span>
-                <span className={styles.bioTitleSub}>{data.ui.hero.bioSubtitle}</span>
+                <span className={styles.bioTitleSub}>
+                  <Typewriter
+                    text={techStackText}
+                    typingSpeed={100}
+                    pauseDuration={1500}
+                  />
+                </span>
               </motion.h2>
 
               <motion.p

@@ -34,7 +34,7 @@ const ContactScene = () => {
 
       <group ref={groupRef}>
         <Float speed={2} rotationIntensity={1.1} floatIntensity={1.5}>
-          <Sphere args={[1.05, 64, 64]} position={[-1.7, 0.4, 0]}>
+          <Sphere args={[1.05, 32, 32]} position={[-1.7, 0.4, 0]}>
             <MeshDistortMaterial
               color="#00f0ff"
               distort={0.35}
@@ -46,7 +46,7 @@ const ContactScene = () => {
         </Float>
 
         <Float speed={1.6} rotationIntensity={1} floatIntensity={1.2}>
-          <Sphere args={[0.85, 64, 64]} position={[1.8, -0.45, -1]}>
+          <Sphere args={[0.85, 32, 32]} position={[1.8, -0.45, -1]}>
             <MeshDistortMaterial
               color="#ff00e5"
               distort={0.3}
@@ -59,7 +59,7 @@ const ContactScene = () => {
 
         <Float speed={1.25} rotationIntensity={0.8} floatIntensity={0.9}>
           <mesh position={[0.2, 1.25, -1.6]}>
-            <torusKnotGeometry args={[0.55, 0.16, 120, 16]} />
+            <torusKnotGeometry args={[0.55, 0.16, 80, 12]} />
             <meshStandardMaterial
               color="#bd5fff"
               emissive="#bd5fff"
@@ -153,9 +153,15 @@ export const CleanContact = () => {
       {show3D ? (
         <div className={styles.canvasWrap} aria-hidden="true">
           <Canvas
-            dpr={[1, 1.5]}
+            dpr={[1, 1.2]}
             camera={{ position: [0, 0, 5], fov: 50 }}
-            gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+            gl={{
+              antialias: false,
+              alpha: true,
+              powerPreference: 'high-performance',
+              preserveDrawingBuffer: false,
+              failIfMajorPerformanceCaveat: true
+            }}
           >
             <ContactScene />
           </Canvas>
@@ -186,7 +192,7 @@ export const CleanContact = () => {
 
           <div className={styles.cards}>
             {contactMethods.map((method, index) => {
-              const baseProps = {
+              const { key, ...motionProps } = {
                 key: method.label,
                 className: styles.contactCard,
                 initial: { opacity: 0, y: 18 },
@@ -215,7 +221,8 @@ export const CleanContact = () => {
               if (method.href) {
                 return (
                   <motion.a
-                    {...baseProps}
+                    key={key}
+                    {...motionProps}
                     href={method.href}
                     target={method.external ? '_blank' : undefined}
                     rel={method.external ? 'noopener noreferrer' : undefined}
@@ -226,7 +233,7 @@ export const CleanContact = () => {
                 );
               }
 
-              return <motion.div {...baseProps}>{content}</motion.div>;
+              return <motion.div key={key} {...motionProps}>{content}</motion.div>;
             })}
           </div>
         </div>

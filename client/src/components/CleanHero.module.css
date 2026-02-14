@@ -3,7 +3,7 @@
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
-  background: #0a0a0f;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,17 +13,31 @@
 }
 
 /* Modern Animated Grid Background */
+/* Modern Premium Dot Matrix Background */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridMove 20s linear infinite;
+  background-image: radial-gradient(rgba(0, 255, 255, 0.12) 1.5px, transparent 1.5px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 100%);
+  animation: bgPulse 10s ease-in-out infinite alternate;
   pointer-events: none;
   z-index: 0;
+  opacity: 0.6;
+}
+
+@keyframes bgPulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
 }
 
 /* Interactive Grid Glow (Touch Effect) */
@@ -58,19 +72,23 @@
   mix-blend-mode: screen;
 }
 
-/* 3D Geometric Shapes Layer */
+/* 3D Geometric Shapes Layer with Symmetrical Glow - OPTIMIZED */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
+    linear-gradient(90deg, rgba(0, 255, 255, 0.12) 0%, transparent 8%),
+    linear-gradient(270deg, rgba(255, 0, 128, 0.12) 0%, transparent 8%),
     radial-gradient(circle at 15% 20%, rgba(0, 255, 255, 0.15) 0%, transparent 25%),
     radial-gradient(circle at 85% 80%, rgba(255, 0, 128, 0.15) 0%, transparent 25%),
     radial-gradient(circle at 50% 50%, rgba(139, 0, 255, 0.12) 0%, transparent 30%);
-  filter: blur(60px);
+  filter: blur(30px);
+  /* Reduced from 60px for performance */
   animation: float3D 20s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
+  will-change: transform;
 }
 
 @keyframes gridMove {
@@ -526,8 +544,9 @@
   .hero {
     min-height: 100svh;
     height: auto;
-    padding: 140px 1.25rem 60px;
-    padding-top: max(140px, env(safe-area-inset-top));
+    padding: 80px 1.25rem 60px;
+    /* Reduced from 140px to prevent button cutoff */
+    padding-top: max(80px, env(safe-area-inset-top));
     padding-bottom: max(60px, env(safe-area-inset-bottom));
     display: flex;
     flex-direction: column;
@@ -782,47 +801,31 @@
 }
 
 .profileCard::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(transparent,
-      #00ffff 10%,
-      #ff0080 20%,
-      transparent 30%);
-  animation: borderRotate 4s linear infinite;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  pointer-events: none;
+  /* Removed rotating border for cleaner look */
+  display: none;
 }
 
 .profileCard {
   position: relative;
-  background: #0a0a0f;
-  border-radius: 24px;
-  padding: 2rem;
-  backdrop-filter: blur(20px);
+  background: rgba(10, 10, 15, 0.4);
+  /* Ultra-sheer dark glass */
+  border-radius: 32px;
+  padding: 2.5rem;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    0 0 40px rgba(0, 255, 255, 0.1);
+    0 40px 80px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 20px rgba(0, 255, 255, 0.05);
   transform-style: preserve-3d;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  /* Base border */
+  overflow: visible;
+  /* Allow floating elements to extend if needed */
 }
 
-/* Inner overlay to mask the rotating gradient */
+/* Inner overlay removed for cleaner glass */
 .profileCard::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: #0a0a0f;
-  border-radius: 22px;
-  z-index: 0;
-  pointer-events: none;
+  display: none;
 }
 
 /* Ensure content is above the border layers */
@@ -900,25 +903,52 @@
 }
 
 .statCard {
-  background: rgba(0, 255, 255, 0.08);
-  border: 1px solid rgba(0, 255, 255, 0.3);
-  border-radius: 16px;
-  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 255, 255, 0.02));
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem 1.2rem;
   text-align: center;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(0, 255, 255, 0.1);
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.05);
   transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Second stat card (Projects) gets magenta theme */
+.statCard:nth-child(2) {
+  background: linear-gradient(135deg, rgba(255, 0, 128, 0.08), rgba(255, 0, 128, 0.02));
+  border: 1px solid rgba(255, 0, 128, 0.2);
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .statCard:hover {
-  background: rgba(0, 255, 255, 0.12);
-  border-color: rgba(0, 255, 255, 0.5);
-  transform: translateY(-8px) translateZ(10px) rotateX(5deg);
+  transform: translateY(-10px) translateZ(30px) scale(1.05);
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(0, 255, 255, 0.2);
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(0, 255, 255, 0.3);
+  border-color: rgba(0, 255, 255, 0.6);
+  z-index: 10;
+}
+
+.statCard:nth-child(2):hover {
+  border-color: rgba(255, 0, 128, 0.6);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 0, 128, 0.3);
 }
 
 .statNum {
@@ -1271,7 +1301,9 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 100px 5% 0;
+    padding: 80px 4% 0;
+    /* Reduced from 138px to prevent button cutoff */
+    min-height: 100vh;
   }
 
   .nameDisplay {
@@ -1518,7 +1550,8 @@
 /* Extra Small Screens */
 @media (max-width: 480px) {
   .hero {
-    padding: 100px 4% 0;
+    padding: 70px 4% 0;
+    /* Reduced from 100px to prevent button cutoff */
   }
 
   .nameDisplay {

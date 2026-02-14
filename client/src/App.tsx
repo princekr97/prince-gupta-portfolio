@@ -6,7 +6,7 @@ import { CleanSkills } from './components/CleanSkills';
 import { AnimatedBackground } from './components/common/AnimatedBackground/AnimatedBackground';
 
 import { Certifications } from './components/sections/Certifications/Certifications';
-import { ProjectsShowcase } from './components/sections/Projects/ProjectsShowcase';
+import { ProjectShowcase3D } from './components/ProjectShowcase3D';
 import { ExperienceTimeline } from './components/sections/Experience/ExperienceTimeline';
 import { CleanContact } from './components/CleanContact';
 import { CleanBlog } from './components/CleanBlog';
@@ -86,7 +86,7 @@ function App() {
         <CleanSkills />
         <Certifications />
 
-        <ProjectsShowcase />
+        <ProjectShowcase3D />
         <CleanBlog />
         <CleanContact />
       </main>

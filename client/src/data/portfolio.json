@@ -402,13 +402,14 @@
       },
       "impact": "Serving thousands of users with fast delivery experience and seamless ONDC integration",
       "link": "https://www.olacabs.com",
+      "mediaLink": "https://www.moneycontrol.com/technology/ola-to-enter-grocery-delivery-via-ondc-captures-30-of-food-orders-on-network-article-12757741.html",
       "featured": true
     },
     {
       "id": 2,
       "title": "Sunbird ED - National LMS Platform",
       "category": "Education Technology",
-      "description": "Architected DevOps transformation (Jenkins to GitHub Actions) and managed mission-critical production releases (v6.0 to v8.0) for India's national education infrastructure.",
+      "description": "Contributed to an open-source, scalable learning platform supporting education, healthcare, and agriculture domains across India. Replaced hardcoded logic with dynamic, configurable solutions.",
       "image": "/projects/sunbird-ed.jpg",
       "technologies": [
         "Angular",
@@ -417,10 +418,10 @@
         "Jest"
       ],
       "features": [
-        "Scalable architecture for millions of users",
-        "Framework-agnostic solutions",
-        "Comprehensive unit testing",
-        "Open-source contribution"
+        "Dynamic, configurable form system",
+        "Postman-based API registration",
+        "Reusable Angular components",
+        "CI/CD with GitHub Actions"
       ],
       "details": {
         "challenge": "Scaling a national learning platform to support varied internet speeds and diverse devices across India while transitioning from hardcoded logic to a flexible, adopter-friendly framework.",
@@ -432,16 +433,16 @@
         ]
       },
       "impact": "Led Generic BMGS Refactor (PR #9063) serving millions",
-      "link": "https://staging.sunbirded.org/",
+      "link": "https://sunbird.org/",
       "prLink": "https://github.com/Sunbird-Ed/SunbirdEd-portal/pull/9063",
-      "github": "https://github.com/Sunbird-Ed/SunbirdEd-portal",
+      "github": "https://github.com/Sunbird-Ed/SunbirdEd-portal/pull/9063",
       "featured": true
     },
     {
       "id": 3,
       "title": "Sphere - Healthcare LMS",
       "category": "Healthcare Training",
-      "description": "Healthcare Learning Management System delivering training programs across Bihar, UP, MP, and other states.",
+      "description": "Contributing to a Healthcare Learning Management System delivering training programs for medical professionals and healthcare workers across Bihar, UP, MP, and other states.",
       "image": "/projects/healthcare-lms.jpg",
       "technologies": [
         "React",
@@ -450,10 +451,10 @@
         "Express.js"
       ],
       "features": [
-        "Multi-state training delivery",
-        "Healthcare-specific modules",
-        "Progress tracking",
-        "Certificate generation"
+        "Admin portal for content management",
+        "Automated support tools",
+        "Optimized Backend APIs",
+        "Multi-state training delivery"
       ],
       "details": {
         "challenge": "Creating an accessible training platform for healthcare workers in rural areas with limited connectivity, requiring offline support and verifiable certification.",
@@ -472,7 +473,7 @@
       "id": 4,
       "title": "DevDesk - High Perf JSON Engine",
       "category": "Productivity PWA",
-      "description": "Extreme-performance workspace for processing massive JSON payloads (100MB+) locally. Features a custom virtualized tree and yielding parser to maintain 60FPS.",
+      "description": "Built for developers who work with APIs, data migration, and file conversions. Visualize massive JSON files up to 100MB+ with our virtualized tree viewer.",
       "image": "/projects/devdesk.jpg",
       "technologies": [
         "React",
@@ -482,11 +483,10 @@
         "Zustand"
       ],
       "features": [
-        "Virtualized tree handling 100MB+ files",
-        "Zero-Copy multithreaded data transfer",
-        "Async yielding parser (12ms cycles)",
-        "Monaco-powered Diff Checker",
-        "Privacy-first offline processing"
+        "Handle 15,000+ nodes",
+        "Real-time search",
+        "Smart Diff Checker",
+        "Data Converters"
       ],
       "details": {
         "challenge": "Handling massive JSON payloads in a single-threaded browser environment without freezing the UI or exceeding memory caps.",
@@ -506,7 +506,7 @@
       "id": 5,
       "title": "eKhatabahi - Ledger Management",
       "category": "Enterprise System",
-      "description": "Comprehensive full-stack digital ledger management system for small businesses, featuring real-time transaction tracking and analytics.",
+      "description": "Comprehensive full-stack personal finance management application that enables users to track expenses, income, investments, loans, EMIs, and personal lending. Features a clean, interactive UI with visual analytics.",
       "image": "/projects/ekhatabahi.jpg",
       "technologies": [
         "MERN Stack",
@@ -515,11 +515,10 @@
         "Tailwind CSS"
       ],
       "features": [
-        "Real-time Kredit/Debit tracking",
-        "Customer-wise ledger history",
-        "PDF Report generation",
-        "Secure JWT-based authentication",
-        "Mobile-first responsive design"
+        "Track expenses & income",
+        "Investment & Loan tracking",
+        "Visual analytics",
+        "Fully responsive"
       ],
       "details": {
         "challenge": "Replacing traditional physical ledgers with a secure, digital alternative that is easy to use for non-technical shop owners while maintaining data integrity.",
@@ -532,7 +531,7 @@
       },
       "impact": "Digital transformation for local business ledgers",
       "link": "https://khatabahi-pg.vercel.app/",
-      "github": "https://github.com/princekr97/ekhatabahi",
+      "github": "https://github.com/princekr97/wealthwise",
       "featured": false
     }
   ],

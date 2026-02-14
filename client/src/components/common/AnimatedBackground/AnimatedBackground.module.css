@@ -51,9 +51,11 @@
             rgba(0, 255, 255, 0.15) 20%,
             rgba(0, 200, 255, 0.1) 40%,
             transparent 60%);
-    filter: blur(60px);
+    filter: blur(30px);
+    /* Reduced from 60px for performance */
     animation: aurora 15s ease-in-out infinite;
     transform-origin: top center;
+    will-change: transform;
 }
 
 .aurora2 {
@@ -67,10 +69,12 @@
             rgba(255, 0, 128, 0.12) 30%,
             rgba(139, 0, 255, 0.08) 50%,
             transparent 70%);
-    filter: blur(80px);
+    filter: blur(35px);
+    /* Reduced from 80px for performance */
     animation: aurora 20s ease-in-out infinite reverse;
     animation-delay: -5s;
     transform-origin: top right;
+    will-change: transform;
 }
 
 .aurora3 {
@@ -83,10 +87,12 @@
             transparent 0%,
             rgba(100, 0, 255, 0.1) 40%,
             transparent 70%);
-    filter: blur(100px);
+    filter: blur(40px);
+    /* Reduced from 100px for performance */
     animation: aurora 25s ease-in-out infinite;
     animation-delay: -10s;
     transform-origin: top left;
+    will-change: transform;
 }
 
 @keyframes aurora {
@@ -204,7 +210,8 @@
             rgba(0, 255, 255, 0.15) 0%,
             rgba(255, 0, 128, 0.08) 30%,
             transparent 70%);
-    filter: blur(80px);
+    filter: blur(40px);
+    /* Reduced from 80px for performance */
     transform: translate(-50%, -50%);
     pointer-events: none;
     will-change: transform;
@@ -324,7 +331,8 @@
     width: 500px;
     height: 500px;
     background: radial-gradient(circle, rgba(0, 255, 255, 0.15) 0%, transparent 70%);
-    filter: blur(80px);
+    filter: blur(35px);
+    /* Reduced from 80px for performance */
     will-change: transform, opacity;
 }
 
@@ -335,7 +343,8 @@
     width: 600px;
     height: 600px;
     background: radial-gradient(circle, rgba(255, 0, 128, 0.12) 0%, transparent 70%);
-    filter: blur(100px);
+    filter: blur(40px);
+    /* Reduced from 100px for performance */
     will-change: transform, opacity;
 }
 
@@ -346,7 +355,8 @@
     width: 800px;
     height: 800px;
     background: radial-gradient(circle, rgba(139, 0, 255, 0.1) 0%, transparent 70%);
-    filter: blur(120px);
+    filter: blur(50px);
+    /* Reduced from 120px for performance */
     will-change: transform, opacity;
 }
 
