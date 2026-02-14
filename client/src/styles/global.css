@@ -17,7 +17,6 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    scroll-behavior: smooth;
 }
 
 /* Disable smooth scroll when user prefers reduced motion */

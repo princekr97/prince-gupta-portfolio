@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './CleanHero.module.css';
 import usePortfolioData from '../hooks/usePortfolioData';
@@ -8,14 +8,23 @@ import { Typewriter } from './common/Typewriter';
 
 export const CleanHero = () => {
   const data = usePortfolioData();
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const heroRef = useRef<HTMLElement>(null);
+  const shapesRef = useRef<HTMLDivElement>(null);
 
   // Tech stack text for typewriter animation
   const techStackText = 'React | Angular | Node.js | GenAI | PWA | ONDC';
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      if (heroRef.current) {
+        heroRef.current.style.setProperty('--mouse-x', `${e.clientX}px`);
+        heroRef.current.style.setProperty('--mouse-y', `${e.clientY}px`);
+      }
+      if (shapesRef.current) {
+        const x = (e.clientX - window.innerWidth / 2) * 0.02;
+        const y = (e.clientY - window.innerHeight / 2) * 0.02;
+        shapesRef.current.style.transform = `translate(${x}px, ${y}px)`;
+      }
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -45,10 +54,7 @@ export const CleanHero = () => {
     <section
       className={styles.hero}
       id="home"
-      style={{
-        '--mouse-x': `${mousePos.x}px`,
-        '--mouse-y': `${mousePos.y}px`,
-      } as React.CSSProperties}
+      ref={heroRef}
     >
       {/* Background elements */}
       <div className={styles.orb1} />
@@ -60,11 +66,9 @@ export const CleanHero = () => {
       </div>
 
       {/* 3D shapes */}
-      <motion.div
+      <div
         className={styles.shapes3d}
-        style={{
-          transform: `translate(${(mousePos.x - window.innerWidth / 2) * 0.02}px, ${(mousePos.y - window.innerHeight / 2) * 0.02}px)`
-        }}
+        ref={shapesRef}
       >
         <motion.div
           className={styles.cube3d}
@@ -76,7 +80,7 @@ export const CleanHero = () => {
           animate={{ y: [0, -20, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
-      </motion.div>
+      </div>
 
       <div className={styles.content}>
         {/* Main Introduction */}
